@@ -2,21 +2,40 @@ import type { Metadata } from "next";
 import { SiteNav } from "@/components/site/SiteNav";
 import { CountdownBar } from "@/components/site/CountdownBar";
 import { StoryStage } from "@/components/site/StoryStage";
-import { about } from "@/lib/site-content";
+import { HomeFooter } from "@/components/site/HomeFooter";
+import { WaitlistForm } from "@/components/site/WaitlistForm";
+import { getAbout, getBrand, getNav, getCountdown, getFooter } from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "About — Learn AI With Layla",
-  description:
-    "Meet Layla Haddad: former big-tech operator, two-time eight-figure founder, and your guide to making AI useful.",
-};
+export const dynamic = "force-dynamic";
 
-export default function AboutPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const [brand, about] = await Promise.all([getBrand(), getAbout()]);
+  return {
+    title: "About",
+    description: `Meet the strategist behind ${brand.name}: former search agency lead, two-time founder, and your guide to getting cited by AI engines.`,
+    openGraph: {
+      title: "About",
+      description: about.beats[0] || "The story behind the GEO playbook.",
+      type: "website",
+    },
+  };
+}
+
+export default async function AboutPage() {
+  const [about, brand, nav, countdown, footer] = await Promise.all([
+    getAbout(),
+    getBrand(),
+    getNav(),
+    getCountdown(),
+    getFooter(),
+  ]);
+
   return (
     <div className="inner-page fade-in">
-      <CountdownBar />
-      <SiteNav />
+      <CountdownBar countdown={countdown} />
+      <SiteNav nav={nav} brand={brand} />
       <main>
-        <StoryStage />
+        <StoryStage about={about} />
         <section className="journey" id="journey" aria-labelledby="journey-title">
           <div className="journey__intro">
             <h2 id="journey-title">
@@ -44,11 +63,9 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-      <footer className="site-footer">
-        <div>
-          <p>© 2026 Learn AI With Layla. All rights reserved.</p>
-        </div>
-      </footer>
+      <HomeFooter footer={footer} brand={brand}>
+        <WaitlistForm source="about" buttonText={footer.ctaButton} />
+      </HomeFooter>
     </div>
   );
 }

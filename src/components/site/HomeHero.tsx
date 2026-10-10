@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { hero } from "@/lib/site-content";
+import type { Hero } from "@/lib/content";
 
 /* Hand-drawn arrow paths for hero callouts */
 function ArrowOne() {
@@ -27,14 +26,14 @@ function ArrowThree() {
   );
 }
 
-export function HomeHero() {
+export function HomeHero({ hero }: { hero: Hero }) {
   const arrows = [<ArrowOne key="1" />, <ArrowTwo key="2" />, <ArrowThree key="3" />];
   return (
     <section className="home-hero" aria-labelledby="home-hero-title">
       <picture className="home-hero__media">
         <source media="(max-width: 760px)" srcSet="/assets/hero/hero-mobile.png" />
         { }
-        <img src="/assets/hero/hero-desktop.png" alt={`${hero.titleB} — AI educator and founder`} />
+        <img src="/assets/hero/hero-desktop.png" alt={`${hero.titleB} — SEO to GEO strategist and founder`} />
       </picture>
       <h1 className="home-hero__title" id="home-hero-title">
         {hero.titleA} <em>{hero.titleEm}</em> {hero.titleB}
@@ -42,9 +41,9 @@ export function HomeHero() {
       {hero.callouts.map((c, i) => (
         <div className={`home-hero__callout home-hero__callout--${["one", "two", "three"][i]}`} key={i}>
           <p>
-            {c.text[0]}
+            {c.text[0] ?? ""}
             <br />
-            {c.text[1]}
+            {c.text[1] ?? ""}
           </p>
           {arrows[i]}
         </div>

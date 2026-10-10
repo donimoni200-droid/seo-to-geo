@@ -1,18 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { countdown } from "@/lib/site-content";
+import type { Countdown } from "@/lib/content";
 
 function pad(n: number) {
   return String(Math.max(0, n)).padStart(2, "0");
 }
 
-export function CountdownBar() {
+export function CountdownBar({ countdown }: { countdown: Countdown }) {
   const [t, setT] = useState<{ d: number; h: number; m: number; s: number } | null>(null);
 
   useEffect(() => {
     if (!countdown.enabled) return;
     const target = new Date(countdown.target).getTime();
+    if (isNaN(target)) return;
     const tick = () => {
       const diff = target - Date.now();
       if (diff <= 0) {
@@ -29,7 +30,7 @@ export function CountdownBar() {
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, []);
+  }, [countdown.enabled, countdown.target]);
 
   if (!countdown.enabled || !t) return null;
 

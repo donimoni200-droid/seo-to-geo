@@ -2,9 +2,15 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { guides, guidesFilters } from "@/lib/site-content";
+import type { Guide } from "@/lib/content";
 
-export function GuidesList() {
+export function GuidesList({
+  guides,
+  filters,
+}: {
+  guides: Guide[];
+  filters: string[];
+}) {
   const [filter, setFilter] = useState("All");
   const [query, setQuery] = useState("");
 
@@ -16,7 +22,7 @@ export function GuidesList() {
         !q || g.title.toLowerCase().includes(q) || g.desc.toLowerCase().includes(q);
       return matchesTag && matchesQuery;
     });
-  }, [filter, query]);
+  }, [guides, filter, query]);
 
   return (
     <>
@@ -25,7 +31,7 @@ export function GuidesList() {
           <div className="filter-row">
             <span className="filter-label">Filter by topic</span>
             <div className="filter-chips">
-              {guidesFilters.map((tag) => (
+              {filters.map((tag) => (
                 <button
                   key={tag}
                   type="button"

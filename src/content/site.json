@@ -1,0 +1,375 @@
+{
+  "brand": {
+    "name": "SEO to GEO With Layla",
+    "firstName": "Layla",
+    "emWord": "With",
+    "footerTagline": "From rankings to AI citations.",
+    "year": 2026
+  },
+  "socials": {
+    "instagram": "https://www.instagram.com/seotogeo",
+    "tiktok": "https://www.tiktok.com/@seotogeo"
+  },
+  "emails": {
+    "partnerships": "partners@seotogeo.io",
+    "support": "hello@seotogeo.io"
+  },
+  "countdown": {
+    "enabled": true,
+    "target": "2026-11-15T17:00:00Z",
+    "label": "The 30-Day GEO Challenge — Next Round",
+    "href": "/challenge"
+  },
+  "nav": {
+    "links": [
+      { "label": "About", "href": "/about" },
+      { "label": "GEO Challenge", "href": "/challenge", "highlight": true },
+      { "label": "Free Guides", "href": "/guides" }
+    ],
+    "dropdown": {
+      "trigger": "Learn GEO",
+      "items": [
+        { "label": "Start Here: What Is GEO?", "href": "/guides/what-is-geo" },
+        { "label": "Get Cited In AI Answers", "href": "/guides/how-to-get-cited-by-ai" },
+        { "label": "Rank In Google AI Overviews", "href": "/guides/rank-in-google-ai-overviews" },
+        { "label": "Get Recommended By ChatGPT", "href": "/guides/get-recommended-by-chatgpt" },
+        { "label": "Measure AI Visibility", "href": "/guides/measure-ai-visibility" },
+        { "label": "Weekend GEO Bootcamp", "href": "/bootcamp" }
+      ]
+    },
+    "contact": { "label": "Contact", "href": "/contact" },
+    "cta": { "label": "Join the Waitlist", "href": "/challenge" }
+  },
+  "hero": {
+    "titleA": "Hey,",
+    "titleEm": "I'm",
+    "titleB": "Layla",
+    "callouts": [
+      { "text": ["Talking about", "SEO → GEO"] },
+      { "text": ["Former search", "agency lead"] },
+      { "text": ["Brands cited", "by AI daily"] }
+    ]
+  },
+  "manifesto": {
+    "kicker": "The short version",
+    "titleA": "SEO got you ranked.",
+    "titleEm": "GEO gets you cited.",
+    "body": [
+      "I spent a decade running search campaigns for global brands — ranking pages, chasing algorithm updates, and treating page one like the finish line. Then AI answers started resolving the query before anyone ever saw a blue link. The click I used to win began disappearing mid-sentence.",
+      "I am not a developer, and I never learned to code. I am a search operator who rebuilt the entire playbook for the answer-engine era — and I package everything that gets brands cited by ChatGPT, Perplexity, and Gemini so you can copy it step by step."
+    ],
+    "chips": ["ChatGPT", "Perplexity", "Gemini", "AI Overviews"]
+  },
+  "challenge": {
+    "kicker": "Flagship program",
+    "titleA": "The 30-Day",
+    "titleEm": "GEO",
+    "titleB": "Challenge",
+    "body": "Brands and marketers have taken the Challenge and gone from invisible in AI answers to cited by ChatGPT, Perplexity, Gemini, and Google AI Overviews. Across 30 days I walk you through every build step by step — no code required, and you keep everything for life. Doors are closed right now so I can focus on the people inside this round. When the next one opens, the waitlist hears first.",
+    "cta": "See the GEO Challenge + Join the Waitlist →"
+  },
+  "marquee": {
+    "text": "AI ANSWERS ARE THE NEW FRONT PAGE · GET CITED · "
+  },
+  "paths": {
+    "visualBadgeA": "Build ",
+    "visualBadgeEm": "your",
+    "visualBadgeB": " GEO advantage",
+    "titleA": "Pick ",
+    "titleEm": "your",
+    "titleB": "next move",
+    "items": [
+      {
+        "number": "01",
+        "title": "Stay On Top of AI Search, Together",
+        "desc": "The long-term community where I break down every AI search shift — AI Overviews changes, new engines, crawler updates — why it matters, and how to keep your citations growing. Go deeper with advanced tracking systems and playbooks alongside people building with you.",
+        "cta": "Explore the community →",
+        "href": "/community"
+      },
+      {
+        "number": "02",
+        "title": "Weekend GEO Bootcamp",
+        "desc": "The beginner setup guide for getting your brand's AI visibility foundation dialed in — entity facts, schema, llms.txt, and your first tracking prompts. Built around one focused weekend, so you start measuring on Monday instead of someday.",
+        "cta": "Explore the bootcamp →",
+        "href": "/bootcamp"
+      },
+      {
+        "number": "03",
+        "title": "The GEO Agent Suite",
+        "desc": "The full suite of AI agents I run on real brands every single week. They audit pages for citation-readiness, track mentions across AI engines, watch competitors, and write GEO-ready briefs — and they have completely changed how I work.",
+        "cta": "Explore the agents →",
+        "href": "/agents"
+      }
+    ]
+  },
+  "guidesSection": {
+    "kicker": "The free library",
+    "titleA": "Recent ",
+    "titleEm": "GEO",
+    "titleB": " guides",
+    "desc": "Bite-sized guides on getting your brand cited by ChatGPT, Perplexity, Gemini, and Google AI Overviews — no jargon, all signal.",
+    "cta": "Browse all guides →"
+  },
+  "socialSection": {
+    "kicker": "Everywhere daily",
+    "titleA": "Let's be",
+    "titleEm": "internet",
+    "titleB": "friends",
+    "desc": "I share what I am testing, which citation tactics are working, and what is quietly changing in AI search — daily, in plain language, on Instagram and TikTok.",
+    "instagram": "Follow on Instagram →",
+    "tiktok": "Follow on TikTok →"
+  },
+  "footer": {
+    "columns": [
+      {
+        "label": "Explore",
+        "links": [
+          { "label": "About", "href": "/about" },
+          { "label": "GEO Challenge", "href": "/challenge" },
+          { "label": "Free Guides", "href": "/guides" },
+          { "label": "Community", "href": "/community" }
+        ]
+      },
+      {
+        "label": "Learn GEO",
+        "links": [
+          { "label": "What Is GEO?", "href": "/guides/what-is-geo" },
+          { "label": "Get Cited In AI Answers", "href": "/guides/how-to-get-cited-by-ai" },
+          { "label": "Rank In AI Overviews", "href": "/guides/rank-in-google-ai-overviews" },
+          { "label": "Get Recommended By ChatGPT", "href": "/guides/get-recommended-by-chatgpt" },
+          { "label": "Weekend GEO Bootcamp", "href": "/bootcamp" }
+        ]
+      },
+      {
+        "label": "Say hey",
+        "links": [
+          { "label": "Contact", "href": "/contact" },
+          { "label": "Instagram", "href": "https://www.instagram.com/seotogeo" },
+          { "label": "TikTok", "href": "https://www.tiktok.com/@seotogeo" }
+        ]
+      }
+    ],
+    "ctaLabel": "The next move",
+    "ctaText": "Join 4,000+ brands and marketers building their AI visibility.",
+    "ctaButton": "Join the waitlist",
+    "ctaHref": "/challenge",
+    "bottomLeft": "© 2026 SEO to GEO With Layla. All rights reserved.",
+    "bottomRight": "From rankings to AI citations."
+  },
+  "about": {
+    "titleA": "Layla ",
+    "titleEm": "Haddad",
+    "beats": [
+      "Years running search campaigns for global brands taught me how the SERP really works — and where its weaknesses are.",
+      "Then AI answers started resolving queries before the click, and I rebuilt my entire playbook around citations instead of positions.",
+      "Today I help brands become the answer AI engines give — and package everything that works so you can copy it."
+    ],
+    "close": ["SEO got you ranked.", "GEO gets you cited."],
+    "hint": "Scroll into my story",
+    "journeyTitle": "My ",
+    "journeyTitleEm": "journey",
+    "timeline": [
+      {
+        "step": "2017",
+        "img": "/assets/about/journey-2017.png",
+        "title": "Learning the SERP",
+        "desc": "I started inside search agencies watching how global brands win — and lose — on page one, one algorithm update at a time."
+      },
+      {
+        "step": "2020",
+        "img": "/assets/about/journey-2020.png",
+        "title": "Building my own",
+        "desc": "I left the agency world and co-built two e-commerce brands from a spare room into eight-figure businesses on the back of organic search."
+      },
+      {
+        "step": "2025",
+        "img": "/assets/about/journey-2025.png",
+        "title": "The AI search shift",
+        "desc": "What started as one curious ChatGPT query became a full rebuild: citations, entities, and answer engines replacing the clicks I used to win."
+      },
+      {
+        "step": "Now",
+        "img": "/assets/about/journey-now.png",
+        "title": "Teaching it forward",
+        "desc": "I turn every tactic that actually earns AI citations into guides, challenges, and systems so you can build your own GEO advantage."
+      }
+    ]
+  },
+  "challengePage": {
+    "heroKicker": "The 30-Day GEO Challenge",
+    "heroTitle": ["From SEO Rankings", "To AI Citations In", "30 Guided Days"],
+    "heroCta": "Join the Waitlist →",
+    "statusLine": "Doors are closed — join the waitlist to hear first when the next round opens.",
+    "sectionOne": {
+      "title": "AI Answers Are Eating The Clicks That Used To Find You.",
+      "body": "Every query your customer types is slowly moving from ten blue links to one generated answer. The brands winning right now are not the ones with the biggest ad budgets — they are the ones AI engines choose to cite when the answer is written. That is a learnable system, and it compounds every single week.",
+      "points": [
+        "See exactly when, where, and why AI engines cite your competitors instead of you",
+        "Fix the content and entity gaps that keep your brand out of generated answers",
+        "Build a citation system that keeps compounding as engines evolve"
+      ]
+    },
+    "sectionTwo": {
+      "title": "I'm Not Here To Turn You Into An AI Engineer.",
+      "body": "You do not need to code. You do not need a technical SEO background. The Challenge is built for normal busy people: brand owners, marketers, freelancers, and agencies. Every build is click-by-click, in plain language, and by day 30 you own a working AI visibility system you built yourself."
+    },
+    "intro": {
+      "title": "Hey, I'm Layla.",
+      "body": "I spent a decade running search campaigns for global brands, then watched AI answers start replacing the clicks I used to win. I rebuilt my entire playbook around citations — and today my brands and clients get recommended by ChatGPT, Perplexity, and Gemini daily. This Challenge is the exact path I would give my past self."
+    },
+    "socialProof": {
+      "title": "1,900+ Brands And Marketers Have Gone From Invisible To Cited.",
+      "stats": [
+        { "value": "1,900+", "label": "Challenge graduates" },
+        { "value": "30", "label": "Days of guided builds" },
+        { "value": "7", "label": "AI engines tracked" },
+        { "value": "∞", "label": "Lifetime access" }
+      ]
+    },
+    "packageSection": {
+      "title": "The Package.",
+      "blocks": [
+        {
+          "title": "Know Where You Stand In AI Answers Today",
+          "desc": "The opening week maps your baseline: which engines cite you, which cite competitors, and the exact gaps in between."
+        },
+        {
+          "title": "Build The Foundation AI Engines Actually Read",
+          "desc": "Entity clarity, structured data, llms.txt, and the facts layer engines cross-check before they trust a brand."
+        },
+        {
+          "title": "Turn Your Content Into Citation Magnets",
+          "desc": "Restructure pages, publish answer-shaped content, and earn the third-party mentions that make citations stick."
+        }
+      ]
+    },
+    "howItWorks": {
+      "title": "How Your 30 Days Actually Work",
+      "items": [
+        { "title": "Everything In One Place", "desc": "A private hub holds every lesson, prompt, file, and replay — for life." },
+        { "title": "A New Lesson Every Day", "desc": "Short daily builds, 15–30 minutes each, released day by day so you never fall behind." },
+        { "title": "You Build It For Real", "desc": "No theory weeks. You leave with your own tracking prompts, entity facts, and citation systems — not notes." },
+        { "title": "You're Never Doing It Alone", "desc": "A live community, weekly Q&A replays, and people building the exact same system beside you." }
+      ]
+    },
+    "bonuses": {
+      "title": "Stacked Bonuses.",
+      "items": [
+        { "title": "The 50-Prompt Tracking Pack", "desc": "Copy-paste prompts that reveal how each engine talks about your brand, your category, and your competitors." },
+        { "title": "llms.txt + Schema Starter Kit", "desc": "My exact templates, filled in with examples so you can ship yours in an afternoon." },
+        { "title": "The Entity Fact-Sheet Template", "desc": "The one page that tells every engine who you are, what you sell, and why you are credible." },
+        { "title": "AI Overviews Ranking Checklist", "desc": "Every signal we have confirmed that gets pages pulled into Google's generated answers." },
+        { "title": "The Perplexity Playbook", "desc": "How the fastest-citing engine selects sources, and how to become one of them." },
+        { "title": "ChatGPT Recommendation Deep Dive", "desc": "Where its shopping and category answers come from — and the patterns that repeat." },
+        { "title": "Competitor Citation Audit Agent", "desc": "An agent that watches who AI answers cite in your category and reports what changed." },
+        { "title": "FAQ Video Vault", "desc": "Answers to every question past rounds ever asked." },
+        { "title": "Community + Networking", "desc": "The room where the winners compare notes after the Challenge ends." },
+        { "title": "Lifetime Access To The Hub", "desc": "Every future round, every engine update — yours forever." }
+      ]
+    },
+    "honest": {
+      "title": "This Is Not A \"Rank #1 In ChatGPT Overnight\" Challenge.",
+      "body": "No honest person can promise specific citations — the engines retrain constantly and answers vary by user. What you will have is a working system, a repeatable method, and the confidence to keep adapting as the tools evolve. That is the actual goal."
+    },
+    "readBefore": {
+      "title": "Read This Before You Join.",
+      "points": [
+        "You need about 20–30 minutes a day. It is fine to miss a day — everything stays open.",
+        "You need zero coding experience. Every build is click-by-click.",
+        "You should bring one real brand: a business, a store, a client. The system works best when it is yours."
+      ]
+    },
+    "certificate": {
+      "title": "Finish The Challenge. Get GEO Certified.",
+      "body": "Complete all 30 days and you unlock a shareable certificate plus a permanent profile in the graduate directory. It is a small thing — but future-you will notice the difference in how you talk about AI visibility in interviews, pitches, and team meetings."
+    },
+    "faq": {
+      "title": "Questions",
+      "items": [
+        { "q": "Do I need technical SEO skills?", "a": "None at all. If you can publish a blog post and fill in a form, you can finish every build in the Challenge." },
+        { "q": "Which AI engines do we cover?", "a": "ChatGPT, Perplexity, Gemini, Google AI Overviews, Claude, and Copilot — plus the crawler and access layer underneath them all." },
+        { "q": "Does GEO replace my current SEO?", "a": "No — it stacks on top. Most of your authority still comes from the fundamentals you already have; GEO makes that authority legible to answer engines." },
+        { "q": "Is this good for my team or agency?", "a": "Yes — several past rounds included whole marketing teams building one shared citation system for their brand or clients." },
+        { "q": "What if it is not for me?", "a": "Every round has a simple refund window at the start. Details are on the checkout page when doors open." }
+      ]
+    },
+    "final": {
+      "titleA": "You Can Keep Competing For Links.",
+      "titleB": "Or You Can Start Getting Cited.",
+      "cta": "Join the Waitlist →",
+      "sub": "Doors open a few times a year. The waitlist always hears first."
+    }
+  },
+  "contact": {
+    "kicker": "Partnerships · Support · Social",
+    "titleA": "Say ",
+    "titleEm": "hey.",
+    "intro": "Whether you want help getting your brand cited, you have a question about the GEO Challenge, or you just want to follow along — you are in the right place.",
+    "cards": [
+      {
+        "label": "Partnerships",
+        "title": "Let's get you cited.",
+        "desc": "For GEO audits, retainers, workshops, and media opportunities:",
+        "email": "partners@seotogeo.io",
+        "linkLabel": "Instagram",
+        "linkHref": "https://www.instagram.com/seotogeo"
+      },
+      {
+        "label": "Support",
+        "title": "Questions? I've got you.",
+        "desc": "For the GEO Challenge, the community, products, or general support:",
+        "email": "hello@seotogeo.io",
+        "linkLabel": "TikTok",
+        "linkHref": "https://www.tiktok.com/@seotogeo"
+      }
+    ]
+  },
+  "placeholderPages": {
+    "community": {
+      "kicker": "The long-term room",
+      "title": "Stay on top of AI search, together.",
+      "desc": "The community where every AI search shift gets broken down — AI Overviews updates, new engines, crawler changes — and turned into what it means for your citations, before your competitors notice.",
+      "cta": "Join the Waitlist →"
+    },
+    "bootcamp": {
+      "kicker": "The weekend setup",
+      "titleA": "Master GEO ",
+      "titleEm": "by Monday.",
+      "desc": "The beginner bootcamp that sets up your whole AI visibility foundation — entity facts, schema, llms.txt, and your first tracking prompts — in one focused weekend.",
+      "cta": "Get the Bootcamp →",
+      "headingA": "One weekend. ",
+      "headingEm": "One system.",
+      "days": [
+        {
+          "title": "Day 1 — Audit & facts",
+          "desc": "Build your baseline: see which engines cite you today, draft your entity fact sheet, and map the consensus gaps holding you back."
+        },
+        {
+          "title": "Day 2 — Build the layer",
+          "desc": "Ship your schema, llms.txt, and crawler access, then set up the tracking prompts that turn guessing into measurement."
+        },
+        {
+          "title": "Monday — Measure for real",
+          "desc": "Walk into the week with a working visibility report: citations, share of voice, and the exact pages to fix next."
+        }
+      ]
+    },
+    "agents": {
+      "kicker": "The agent suite",
+      "titleA": "Hire the ",
+      "titleEm": "GEO team",
+      "titleB": " I use.",
+      "desc": "Citation tracking, page audits, competitor watches, and GEO-ready briefs — the agents that run my brands every day, ready to plug into yours.",
+      "cta": "Explore the Agents →",
+      "suiteHeadingA": "The ",
+      "suiteHeadingEm": "full suite",
+      "items": [
+        { "label": "GEO Audit Agent", "href": "/guides/how-to-get-cited-by-ai", "desc": "Audits any page for citation-readiness — entity clarity, extractable answers, and the gaps engines trip over." },
+        { "label": "Citation Tracker Agent", "href": "/guides/measure-ai-visibility", "desc": "Runs your weekly prompt set across engines and reports who got cited, mentioned, and described how." },
+        { "label": "AI Overviews Specialist", "href": "/guides/rank-in-google-ai-overviews", "desc": "Watches which pages Google pulls into generated answers in your category and reverse-engineers why." },
+        { "label": "ChatGPT Watcher", "href": "/guides/get-recommended-by-chatgpt", "desc": "Tracks how ChatGPT recommends products in your category — and which consensus sources feed it." },
+        { "label": "Competitor Scout", "href": "/guides/geo-vs-seo-vs-aeo", "desc": "Maps the mentions, reviews, and listicles propping up your competitors' AI visibility — and yours." }
+      ]
+    }
+  }
+}

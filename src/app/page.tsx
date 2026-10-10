@@ -9,21 +9,58 @@ import {
   HomeSocial,
 } from "@/components/site/HomeSections";
 import { HomeFooter } from "@/components/site/HomeFooter";
+import { WaitlistForm } from "@/components/site/WaitlistForm";
+import {
+  getBrand,
+  getSocials,
+  getCountdown,
+  getNav,
+  getHero,
+  getManifesto,
+  getChallengeSection,
+  getMarquee,
+  getPaths,
+  getGuidesSection,
+  getSocialSection,
+  getFooter,
+  getPublishedGuides,
+} from "@/lib/content";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const [brand, socials, countdown, nav, hero, manifesto, challenge, marquee, paths, guidesSection, socialSection, footer, guides] =
+    await Promise.all([
+      getBrand(),
+      getSocials(),
+      getCountdown(),
+      getNav(),
+      getHero(),
+      getManifesto(),
+      getChallengeSection(),
+      getMarquee(),
+      getPaths(),
+      getGuidesSection(),
+      getSocialSection(),
+      getFooter(),
+      getPublishedGuides(),
+    ]);
+
   return (
     <>
-      <CountdownBar />
-      <HomeHeader />
+      <CountdownBar countdown={countdown} />
+      <HomeHeader nav={nav} socials={socials} brand={brand} />
       <main>
-        <HomeHero />
-        <Manifesto />
-        <HomeChallenge />
-        <HomePaths />
-        <HomeGuides />
-        <HomeSocial />
+        <HomeHero hero={hero} />
+        <Manifesto manifesto={manifesto} />
+        <HomeChallenge challenge={challenge} />
+        <HomePaths paths={paths} marquee={marquee} />
+        <HomeGuides guides={guides} section={guidesSection} />
+        <HomeSocial socialSection={socialSection} socials={socials} />
       </main>
-      <HomeFooter />
+      <HomeFooter footer={footer} brand={brand}>
+        <WaitlistForm source="footer" buttonText={footer.ctaButton} />
+      </HomeFooter>
     </>
   );
 }

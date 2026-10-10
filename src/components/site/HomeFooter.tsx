@@ -1,27 +1,35 @@
-import Link from "next/link";
-import { footer, brand } from "@/lib/site-content";
+import type { Footer, Brand } from "@/lib/content";
+import { SiteLogo } from "./SiteLogo";
 
-export function HomeFooter() {
+export function HomeFooter({
+  footer,
+  brand,
+  children,
+}: {
+  footer: Footer;
+  brand: Brand;
+  children?: React.ReactNode;
+}) {
   return (
     <footer className="home-footer">
       <div className="home-footer__brand">
-        Learn AI <em>{brand.emWord}</em> {brand.firstName}
+        <SiteLogo variant="cream" name={brand.name} emWord={brand.emWord} />
       </div>
       <div className="home-footer__grid">
         {footer.columns.map((col) => (
           <div key={col.label}>
             <p className="home-footer__label">{col.label}</p>
             {col.links.map((l) => (
-              <Link key={l.label} href={l.href}>
+              <a key={l.label} href={l.href}>
                 {l.label}
-              </Link>
+              </a>
             ))}
           </div>
         ))}
         <div className="home-footer__cta">
           <p className="home-footer__label">{footer.ctaLabel}</p>
           <p>{footer.ctaText}</p>
-          <Link href={footer.ctaHref}>{footer.ctaButton}</Link>
+          {children ?? <a href={footer.ctaHref}>{footer.ctaButton}</a>}
         </div>
       </div>
       <div className="home-footer__bottom">

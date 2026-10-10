@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { about } from "@/lib/site-content";
+import type { About } from "@/lib/content";
 
-export function StoryStage() {
+export function StoryStage({ about }: { about: About }) {
   const sectionRef = useRef<HTMLElement>(null);
   const [stage, setStage] = useState(0); // 0 opening, 1..n beats, n+1 close
 
@@ -28,7 +28,7 @@ export function StoryStage() {
       cancelAnimationFrame(raf);
       window.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  }, [about.beats.length]);
 
   return (
     <section className="about-story" ref={sectionRef}>
@@ -59,9 +59,9 @@ export function StoryStage() {
               transition: "opacity 0.5s",
             }}
           >
-            <p>{about.close[0]}</p>
+            <p>{about.close[0] ?? ""}</p>
             <p>
-              <em>{about.close[1]}</em>
+              <em>{about.close[1] ?? ""}</em>
             </p>
           </div>
         </div>

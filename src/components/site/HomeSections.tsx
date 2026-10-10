@@ -1,13 +1,21 @@
 import Link from "next/link";
-import { challenge, marquee, paths, guidesSection, socialSection, guides } from "@/lib/site-content";
+import type {
+  ChallengeSection,
+  Marquee,
+  Paths,
+  GuidesSection,
+  SocialSection,
+  Guide,
+  Socials,
+} from "@/lib/content";
 import { Reveal } from "./Reveal";
 
-export function HomeChallenge() {
+export function HomeChallenge({ challenge }: { challenge: ChallengeSection }) {
   return (
     <section className="home-challenge" aria-labelledby="challenge-title">
       <div className="home-challenge__visual">
         { }
-        <img src="/assets/sections/challenge-desk.png" alt="Working at a desk with AI tools open" />
+        <img src="/assets/sections/challenge-desk.png" alt="Working at a desk on AI visibility tracking" />
       </div>
       <div className="home-challenge__content">
         <p className="home-section-kicker">{challenge.kicker}</p>
@@ -25,13 +33,19 @@ export function HomeChallenge() {
   );
 }
 
-export function HomePaths() {
+export function HomePaths({
+  paths,
+  marquee,
+}: {
+  paths: Paths;
+  marquee: Marquee;
+}) {
   return (
     <section className="home-paths" aria-labelledby="paths-title">
       <div className="home-paths__marquee" aria-hidden="true">
         <div className="home-paths__marquee-track">
-          <span>{marquee.repeat(4)}</span>
-          <span>{marquee.repeat(4)}</span>
+          <span>{(marquee.text || "GET CITED · ").repeat(4)}</span>
+          <span>{(marquee.text || "GET CITED · ").repeat(4)}</span>
         </div>
       </div>
       <div className="home-paths__layout">
@@ -67,20 +81,26 @@ export function HomePaths() {
   );
 }
 
-export function HomeGuides() {
-  const recent = guides.slice(0, 8);
+export function HomeGuides({
+  guides,
+  section,
+}: {
+  guides: Guide[];
+  section: GuidesSection;
+}) {
+  const recent = guides.filter((g) => g.published).slice(0, 8);
   return (
     <section className="home-guides" aria-labelledby="guides-title">
       <div className="home-guides__heading">
         <div>
-          <p className="home-section-kicker">{guidesSection.kicker}</p>
+          <p className="home-section-kicker">{section.kicker}</p>
           <h2 id="guides-title">
-            {guidesSection.titleA}
-            <em>{guidesSection.titleEm}</em>
-            {guidesSection.titleB}
+            {section.titleA}
+            <em>{section.titleEm}</em>
+            {section.titleB}
           </h2>
         </div>
-        <p>{guidesSection.desc}</p>
+        <p>{section.desc}</p>
       </div>
       <div className="home-guides__grid">
         {recent.map((g) => (
@@ -94,13 +114,19 @@ export function HomeGuides() {
         ))}
       </div>
       <Link href="/guides" className="btn home-guides__all">
-        {guidesSection.cta}
+        {section.cta}
       </Link>
     </section>
   );
 }
 
-export function HomeSocial() {
+export function HomeSocial({
+  socialSection,
+  socials,
+}: {
+  socialSection: SocialSection;
+  socials: Socials;
+}) {
   return (
     <section className="home-social" aria-label="Social links">
       <div className="home-social__content">
@@ -112,10 +138,10 @@ export function HomeSocial() {
         </h2>
         <p>{socialSection.desc}</p>
         <div className="home-social__buttons">
-          <a className="btn" href="https://www.instagram.com/yourhandle" target="_blank" rel="noopener">
+          <a className="btn" href={socials.instagram} target="_blank" rel="noopener">
             {socialSection.instagram}
           </a>
-          <a className="btn" href="https://www.tiktok.com/@yourhandle" target="_blank" rel="noopener">
+          <a className="btn" href={socials.tiktok} target="_blank" rel="noopener">
             {socialSection.tiktok}
           </a>
         </div>

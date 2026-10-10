@@ -1,0 +1,258 @@
+[
+  {
+    "slug": "what-is-geo",
+    "tag": "Fundamentals",
+    "title": "What Is GEO? Generative Engine Optimization, Explained",
+    "desc": "The plain-English guide to GEO: what generative engines are, how they decide which brands to cite, and why the discipline matters more every quarter.",
+    "readTime": "7 min",
+    "published": true,
+    "order": 1,
+    "body": [
+      {
+        "heading": "Search used to be a list of links",
+        "paras": [
+          "For twenty-five years, search meant one thing: a ranked list of blue links. You optimized a page, earned positions, and collected the clicks that flowed through them. The entire SEO industry — keywords, backlinks, technical audits — grew up around that single mechanic. It worked because it was the only interface available.",
+          "Generative engines changed the interface. When someone asks ChatGPT, Perplexity, or Gemini for the best CRM for a small agency, they receive a written answer — a recommendation, a comparison, a shortlist with reasons. The links still exist underneath, but the click now happens after the decision, not before it. If your brand is not inside the generated answer, you are not in the consideration set at all."
+        ]
+      },
+      {
+        "heading": "How generative engines pick their sources",
+        "paras": [
+          "AI answers are not magic, and they are not random. Generative engines retrieve from indexes and their training data, then synthesize a response from the sources they consider trustworthy and relevant to the query. In practice, engines favor sources that show consensus — multiple independent places agreeing on who you are and what you are good at — plus content that is structured, verifiable, and easy to quote.",
+          "That last part matters more than most brands realize. A generated answer can only cite what it can cleanly extract: a clear definition, a named entity, a stat with a source, a comparison table. Dense, well-structured, answer-shaped pages get pulled in; vague brand storytelling gets skipped. GEO is the practice of making your brand legible to that selection process."
+        ]
+      },
+      {
+        "heading": "What GEO actually involves",
+        "paras": [
+          "In practice, GEO breaks into four layers. First, entity clarity: consistent facts about your brand across your site, your structured data, and third-party sources, so engines cross-check and confirm you exist as a credible entity. Second, answer-shaped content: pages written to resolve the questions your buyers actually ask, in formats engines can quote.",
+          "Third, technical access: letting AI crawlers in, keeping your facts stable, and publishing a clean machine-readable map of your key content. Fourth, measurement: tracking which engines cite you, for which questions, and how often — because unlike rankings, answers vary per user, so you need a prompt-based system instead of a rank tracker. Everything inside this site — the guides, the Challenge, the agents — is built on those four layers."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "geo-vs-seo-vs-aeo",
+    "tag": "Comparison",
+    "title": "GEO vs SEO vs AEO: The Real Differences",
+    "desc": "Three acronyms, one shifting battlefield. What actually separates generative engine optimization from classic SEO and answer engine optimization — and where they overlap.",
+    "readTime": "8 min",
+    "published": true,
+    "order": 2,
+    "body": [
+      {
+        "heading": "Three acronyms, one battlefield",
+        "paras": [
+          "SEO optimizes for a ranked list of links on a search results page. AEO — answer engine optimization — grew out of featured snippets and voice assistants: winning the concise answer box Google carves out at the top. GEO targets something newer: being cited inside a generated answer that the engine itself wrote, across ChatGPT, Perplexity, Gemini, and AI Overviews.",
+          "The distinction is not academic. A snippet still sends the click to one page. A generated answer often names five brands and describes each — and the user may never click anything. Your goal shifts from owning a position to being one of the names the engine reaches for when it writes the answer."
+        ]
+      },
+      {
+        "heading": "Where they overlap",
+        "paras": [
+          "Here is the uncomfortable truth for anyone hoping GEO is a fresh start: the fundamentals carry over. Authority still matters — engines cross-check what other credible sources say about you. Content quality still matters — fact-dense, well-structured pages win. Technical accessibility still matters — if crawlers cannot read you, neither can the model's index.",
+          "That is why strong SEO brands have a head start in AI answers. Their entity is already consistent, their content already earns third-party mentions. GEO is less a replacement and more a second distribution channel for the same trust — with different packaging requirements at the end."
+        ]
+      },
+      {
+        "heading": "What is genuinely new in GEO",
+        "paras": [
+          "Three things are new. First, consensus beats singularity: one great page used to be enough to rank; a citation usually requires agreement across multiple sources — reviews, roundups, directories, press. Second, there is no fixed position to track: answers differ per user and per session, so measurement moves from rank tracking to prompt-based visibility tracking across engines.",
+          "Third, the surface area exploded. You are not optimizing for one SERP; you are optimizing for a handful of engines with different retrieval habits — Perplexity favors recency and authority, ChatGPT leans on consensus and its browsing layer, AI Overviews borrow heavily from pages that already rank. The discipline is wider, not deeper. That is why systems — not one-off tactics — win here."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "how-to-get-cited-by-ai",
+    "tag": "Citations",
+    "title": "How To Get Your Brand Cited In AI Answers",
+    "desc": "The full anatomy of an AI citation: what engines verify before they name you, the content patterns that get quoted, and the consensus signals that make mentions stick.",
+    "readTime": "9 min",
+    "published": true,
+    "order": 3,
+    "body": [
+      {
+        "heading": "AI cites what it can verify",
+        "paras": [
+          "Before a generative engine names your brand, it quietly checks that you are real, consistent, and credible. That verification runs on your entity: your name, category, claims, and numbers, cross-checked across your site, your structured data, and what third parties say about you. If your About page says one thing, your LinkedIn says another, and directories say nothing, the engine hedges — and hedging means citing someone else.",
+          "Start with an entity fact sheet: one page (and one internal source of truth) that states who you serve, what you sell, your founding story, your differentiators, and your provable claims — awards, counts, certifications. Mirror those facts in your homepage copy, your schema markup, and every profile you control. Consistency is the cheapest citation win available, and almost nobody does it properly."
+        ]
+      },
+      {
+        "heading": "Answer-shaped content wins",
+        "paras": [
+          "Generated answers can only quote what is extractable. Pages written as narrative arcs — story first, point eventually — give the engine nothing to lift. Pages written answer-first — a question as the heading, a direct two-sentence answer immediately below, then the supporting detail — give it everything. Structure is the difference between being quotable and being invisible.",
+          "The pattern generalizes across your whole site: define the terms you want to own, publish comparison tables for versus-queries, include numbers with sources, and let experts speak in quotable sentences. A page that answers 'what is the best X for Y' with a clean shortlist and one-line reasons per option is citation bait for every engine that touches the category."
+        ]
+      },
+      {
+        "heading": "Consensus is the currency",
+        "paras": [
+          "The hardest part of GEO is the part you cannot fake: engines trust brands that multiple independent sources already discuss. One page on your site says you are great; a review on a platform, a mention in a roundup, a thread on Reddit, an industry directory saying the same — that is consensus. The engine reads the agreement, not the assertion.",
+          "Build a mention map of your category: the listicles that rank, the communities that discuss, the directories that list, the reviewers that compare. Then work it — honestly, persistently — one placement at a time. Every third-party mention raises the probability that the next generated answer includes you. This is the compounding layer of GEO, and it is exactly why starting early is an advantage: your competitors are building the same moat, whether they know it or not."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "rank-in-google-ai-overviews",
+    "tag": "Google",
+    "title": "How To Rank In Google AI Overviews",
+    "desc": "AI Overviews are a different SERP with different selection rules. What gets pages pulled into Google's generated answers — and how to keep your traffic when clicks shrink.",
+    "readTime": "8 min",
+    "published": true,
+    "order": 4,
+    "body": [
+      {
+        "heading": "AI Overviews are a different SERP",
+        "paras": [
+          "An AI Overview is Google generating the answer on your behalf: it retrieves a handful of sources, writes a synthesis, and links them inline. Early data across industries agrees on two things — AI Overviews now appear on a large share of informational queries, and they compress clicks dramatically, because the summary resolves the question before the results load.",
+          "The selection logic differs from classic ranking. Pages that already rank well are heavily represented, but not exclusively: AI Overviews favor pages that answer the specific question cleanly — well-structured, fact-dense, quotable — even when their overall domain authority is moderate. In other words: you can lose the #1 position and still be the cited source, and vice versa."
+        ]
+      },
+      {
+        "heading": "What gets pages picked",
+        "paras": [
+          "The pattern across cited pages is remarkably consistent. They lead with a direct answer to the query, then structure the rest in scannable blocks — headings that mirror question forms, short paragraphs, lists, tables. They include specifics: numbers, dates, named entities, sourced claims. Vague intro paragraphs and keyword-stuffed headers do the opposite of help.",
+          "Technical hygiene matters more here than anywhere else: clean crawl access, correct canonicals, and schema that disambiguates what the page actually is. The engine assembling an Overview needs to trust what it extracts — a page that contradicts its own structured data is a page it would rather skip."
+        ]
+      },
+      {
+        "heading": "Protecting your traffic",
+        "paras": [
+          "Zero-click is the reality to plan for, not panic about. When the Overview cites you, the brand impression still lands — users who saw your name in the answer often search for you directly afterward. That means your measurement has to track citations and branded search together, and your pages have to give the follow-up click somewhere to go: a clear next step right after the extractable answer.",
+          "Finally, treat AI Overviews as a channel to monitor, not a one-time fix. Track a fixed set of questions weekly, note when your citation status changes, and reverse-engineer what the newly cited pages do differently. The engines retrain constantly; the brands that watch consistently are the ones that stay inside the answers."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "get-recommended-by-chatgpt",
+    "tag": "ChatGPT",
+    "title": "How To Get Recommended By ChatGPT",
+    "desc": "Where ChatGPT's answers actually come from, the patterns behind 'best X' recommendations, and the playbook for making your brand the one it names.",
+    "readTime": "7 min",
+    "published": true,
+    "order": 5,
+    "body": [
+      {
+        "heading": "Where ChatGPT's answers come from",
+        "paras": [
+          "ChatGPT recommendations have two sources. The first is training data: everything the model absorbed about your category — reviews, articles, discussions — compressed into associations. The second is browsing: for queries that need freshness, ChatGPT searches the web through its search layer and reads what it finds before answering. You cannot pay for either path; you can only feed them.",
+          "This explains the most confusing thing brands experience: asking ChatGPT about your category and getting different answers across days or accounts. Answers vary with retrieval and phrasing. The right response is not frustration — it is building enough surface area that every path leads to you."
+        ]
+      },
+      {
+        "heading": "The recommendation patterns",
+        "paras": [
+          "Ask ChatGPT for the best tool in a mature category and reverse-engineer the answer: it usually names the brands with the strongest consensus footprint — the ones that appear across review sites, comparison articles, and community threads. The model is essentially summarizing the aggregated opinion of the web, with recency folded in where browsing is involved.",
+          "The practical read: category leadership in ChatGPT is downstream of category presence everywhere else. Brands that dominate 'best of' lists, get discussed in niche communities, and maintain fresh comparison pages get recommended; brands with a great product and no footprint do not. The engine cannot recommend what it has never effectively read."
+        ]
+      },
+      {
+        "heading": "The playbook",
+        "paras": [
+          "Work four surfaces in order of leverage. One: review platforms and roundups in your niche — get listed, get reviewed honestly, get compared. Two: comparison and versus pages on your own site, written answer-first, so browsing sessions find something quotable. Three: communities where your buyers ask for recommendations — participate genuinely, because those threads are training data. Four: freshness signals — updated content, recent mentions, current pricing.",
+          "Then measure like a GEO practitioner: a fixed prompt set across account types and weeks, tracking how often you appear, how you are described, and whether the wording is positive. Improving those three numbers is the entire game — and it compounds: every month of consistent presence across the four surfaces raises the odds the next answer includes you."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "rank-in-perplexity",
+    "tag": "Perplexity",
+    "title": "How To Rank In Perplexity And Get Cited",
+    "desc": "Perplexity is a search engine wearing a chat hat — which makes it the most winnable engine in GEO. How its citations work and where the quick wins are.",
+    "readTime": "6 min",
+    "published": true,
+    "order": 6,
+    "body": [
+      {
+        "heading": "A search engine wearing a chat hat",
+        "paras": [
+          "Perplexity behaves more like classic search than the other engines: it retrieves live, reads the results, and synthesizes an answer with numbered citations to specific pages. That makes it the most transparent engine to optimize — when it cites you, you can see exactly which page it used, and when it cites a competitor, you can study the page that beat yours.",
+          "Its retrieval favors two qualities in combination: authority, as classic search would measure it, and recency — Perplexity wants current answers and often reaches for recently updated pages. A page that is both authoritative and demonstrably fresh has an outsized edge here."
+        ]
+      },
+      {
+        "heading": "Citation mechanics",
+        "paras": [
+          "Perplexity citations attach to claims, not to brands. The engine writes a sentence and points at the source that supports it — which means your job is to be the cleanest support for the sentences you want written. Pages with extractable facts, clear definitions, and explicit comparisons get cited for exactly those pieces; pages that bury their substance inside long narrative paragraphs give the engine nothing to anchor.",
+          "Structure for extraction: question-shaped headings, the answer in the first two sentences, dated updates, and a visible publishing or last-updated stamp. Perplexity reads those stamps as freshness signals — one of the few engines that visibly rewards them."
+        ]
+      },
+      {
+        "heading": "Quick wins",
+        "paras": [
+          "Three moves pay off fastest in Perplexity. Clean up your URLs and titles so the engine understands what each page is before it reads a word. Refresh your most important pages on a real cadence and update the visible date. And build the answer-first blocks described above into every page that targets a question your buyers actually ask.",
+          "Then track it like everything else in GEO: run your prompt set weekly, note which of your pages Perplexity cites, and reverse-engineer the citations it gives competitors. Because Perplexity shows its sources so openly, it is the single best training ground for the other engines — the patterns you learn here transfer almost everywhere."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "llms-txt-guide",
+    "tag": "Technical",
+    "title": "What Is llms.txt And Does It Actually Work?",
+    "desc": "The honest breakdown of the llms.txt proposal: what it promises, what the evidence says, and what to do instead (and alongside) to be machine-readable.",
+    "readTime": "6 min",
+    "published": true,
+    "order": 7,
+    "body": [
+      {
+        "heading": "The idea",
+        "paras": [
+          "llms.txt is a proposed standard — a markdown file at your site root that maps your key content for large language models: what you offer, which pages matter, and where the machine-readable facts live. Think of it as a friendly table of contents written for AI instead of humans. The proposal caught on because it is elegant: one file, one obvious location, one clear job.",
+          "The appeal is understandable. Brands want a lever they control — a way to tell engines directly who they are. And a well-written llms.txt genuinely costs nothing to ship: an hour of work, one file, zero risk."
+        ]
+      },
+      {
+        "heading": "The honest evidence",
+        "paras": [
+          "Here is the part most articles skip: there is no confirmed evidence that any major engine treats llms.txt as a required or even strongly-weighted source. Engines retrieve from indexes and training data; a voluntary file at your root does not override what the rest of the web says about you. Treating llms.txt as the GEO fix is like treating a business card as a marketing strategy.",
+          "The productive frame: llms.txt is a hint, not a switch. Ship it — it may help engines orient, and the file forces you to write down your key facts, which is valuable on its own. But do not expect the file alone to change what answers say about you. Consensus and structured content still do the heavy lifting."
+        ]
+      },
+      {
+        "heading": "What to do instead (and alongside)",
+        "paras": [
+          "Four things matter more than the file. First, crawler access: check your robots.txt and firewall logs and make sure AI crawlers can actually read you — more brands are accidentally blocking GPTBot and friends than are shipping llms.txt. Second, structured data: schema that states your entity facts in machine-readable form. Third, stable fact pages — an About page and a fact sheet that do not move or contradict themselves.",
+          "Fourth, the sitemap hygiene everyone skips: clean, accurate, current. Then add llms.txt on top as the orientation layer. That stack — access, schema, stable facts, sitemap, llms.txt — is what 'being machine-readable' actually means in practice, and it is all controllable by you this week."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "measure-ai-visibility",
+    "tag": "Measurement",
+    "title": "How To Measure AI Visibility Without Guessing",
+    "desc": "Rank trackers cannot see AI answers. The prompt-set method for tracking citations across engines — plus the metrics that actually matter.",
+    "readTime": "8 min",
+    "published": true,
+    "order": 8,
+    "body": [
+      {
+        "heading": "Why rank trackers cannot see this",
+        "paras": [
+          "Classic rank tracking assumes a stable SERP: one query, one position, one URL. AI answers break every one of those assumptions — the answer differs by user, session, phrasing, and retrieval moment. The same question can name you on Monday and omit you on Friday with nothing on your site having changed.",
+          "That means AI visibility has to be measured statistically: across many prompts, many sessions, and many weeks — looking for your citation rate and trajectory rather than a position. The good news: the method is simple, free to start, and more actionable than rank tracking ever was, because every miss tells you which competitor got named and what they did to deserve it."
+        ]
+      },
+      {
+        "heading": "The prompt-set method",
+        "paras": [
+          "Start by writing 30 to 50 prompts that mirror real buying decisions, not brand searches: 'best CRM for a 10-person agency', 'what should I look for in a warehouse management system', 'cheapest reliable email tool for creators'. Include competitor-comparison prompts and category-explanation prompts. This set is your measurement instrument — keep it fixed so the data stays comparable week over week.",
+          "Run the set weekly across the engines that matter to your buyers — ChatGPT, Perplexity, Gemini, AI Overviews — in fresh sessions, and log three things per prompt: were you cited, were you mentioned, and how were you described. A spreadsheet is enough to start; consistency matters more than tooling."
+        ]
+      },
+      {
+        "heading": "Metrics that matter",
+        "paras": [
+          "Four numbers tell the story. Citation rate: the share of prompts where an engine names you. Share of voice: your citations versus competitors' across the set — the single best proxy for category standing. Description sentiment: whether the engine describes you the way you would describe yourself. And trajectory: week-over-week movement on all three, which tells you whether your GEO work is compounding or stalling.",
+          "When a number moves, reverse-engineer it: find which page got cited or which competitor gained, and study what changed. That feedback loop — measure, attribute, adjust, measure — is the entire operating system of GEO. Brands that run it weekly adapt in weeks; brands that guess adapt never. Everything else on this site exists to feed that loop."
+        ]
+      }
+    ]
+  }
+]

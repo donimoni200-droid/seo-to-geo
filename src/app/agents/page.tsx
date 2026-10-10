@@ -1,45 +1,81 @@
 import { SiteNav } from "@/components/site/SiteNav";
 import { CountdownBar } from "@/components/site/CountdownBar";
-import { placeholderPages as pp, nav } from "@/lib/site-content";
+import { HomeFooter } from "@/components/site/HomeFooter";
+import { WaitlistForm } from "@/components/site/WaitlistForm";
+import {
+  getPlaceholderPages,
+  getBrand,
+  getNav,
+  getCountdown,
+  getFooter,
+} from "@/lib/content";
 import Link from "next/link";
+import type { Metadata } from "next";
 
-export default function AgentsPage() {
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const [brand, pp] = await Promise.all([getBrand(), getPlaceholderPages()]);
+  return {
+    title: "The GEO Agent Suite",
+    description: pp.agents.desc,
+  };
+}
+
+export default async function AgentsPage() {
+  const [pp, brand, nav, countdown, footer] = await Promise.all([
+    getPlaceholderPages(),
+    getBrand(),
+    getNav(),
+    getCountdown(),
+    getFooter(),
+  ]);
+  const agents = pp.agents;
+
   return (
     <div className="inner-page fade-in">
-      <CountdownBar />
-      <SiteNav />
+      <CountdownBar countdown={countdown} />
+      <SiteNav nav={nav} brand={brand} />
       <main>
         <section className="inner-hero">
           <div className="inner-hero__copy">
-            <p className="home-section-kicker">{pp.agents.kicker}</p>
+            <p className="home-section-kicker">{agents.kicker}</p>
             <h1 className="inner-hero__title">
-              Hire the <em>AI team</em> I use.
+              {agents.titleA}
+              <em>{agents.titleEm}</em>
+              {agents.titleB}
             </h1>
-            <p>{pp.agents.desc}</p>
+            <p>{agents.desc}</p>
             <a className="btn btn--hero" href="#suite">
-              {pp.agents.cta}
+              {agents.cta}
             </a>
           </div>
           <div className="inner-hero__visual">
             { }
-            <img src="/assets/about/journey-2025.png" alt="The AI agent suite running daily operations" />
+            <img src="/assets/about/journey-2025.png" alt="The GEO agent suite running weekly visibility checks" />
           </div>
         </section>
         <section id="suite" style={{ padding: "clamp(70px, 9vw, 130px) clamp(24px, 5vw, 78px)" }}>
           <div className="section-heading">
             <h2>
-              The <em>full suite</em>
+              {agents.suiteHeadingA}
+              <em>{agents.suiteHeadingEm}</em>
             </h2>
           </div>
           <div className="bonus-grid" style={{ width: "min(100%, 1180px)", margin: "0 auto" }}>
-            {nav.dropdown.items.slice(0, 5).map((agent) => (
+            {agents.items.map((agent) => (
               <div key={agent.label} className="bonus-item">
                 <h3>{agent.label}</h3>
-                <p>
-                  A ready-to-run agent with its full briefing, guardrails, and output format —
-                  plug in your business context and it starts working today.
-                </p>
-                <Link href={agent.href} style={{ fontSize: "0.72rem", fontWeight: 800, letterSpacing: "0.11em", textTransform: "uppercase" }}>
+                <p>{agent.desc}</p>
+                <Link
+                  href={agent.href}
+                  style={{
+                    fontSize: "0.72rem",
+                    fontWeight: 800,
+                    letterSpacing: "0.11em",
+                    textTransform: "uppercase",
+                  }}
+                >
                   Explore →
                 </Link>
               </div>
@@ -47,11 +83,9 @@ export default function AgentsPage() {
           </div>
         </section>
       </main>
-      <footer className="site-footer">
-        <div>
-          <p>© 2026 Learn AI With Layla. All rights reserved.</p>
-        </div>
-      </footer>
+      <HomeFooter footer={footer} brand={brand}>
+        <WaitlistForm source="agents" buttonText={footer.ctaButton} />
+      </HomeFooter>
     </div>
   );
 }

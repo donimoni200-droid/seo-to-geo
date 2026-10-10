@@ -1,24 +1,41 @@
 import type { Metadata } from "next";
 import { SiteNav } from "@/components/site/SiteNav";
 import { CountdownBar } from "@/components/site/CountdownBar";
-import { contact } from "@/lib/site-content";
+import { ContactForm } from "@/components/site/ContactForm";
+import { HomeFooter } from "@/components/site/HomeFooter";
+import { WaitlistForm } from "@/components/site/WaitlistForm";
+import { getContact, getBrand, getNav, getCountdown, getFooter } from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "Contact Me — Learn AI With Layla",
-  description: "Get in touch: partnerships, support, and social links.",
-};
+export const dynamic = "force-dynamic";
 
-export default function ContactPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const [brand, contact] = await Promise.all([getBrand(), getContact()]);
+  return {
+    title: "Contact",
+    description: contact.intro,
+  };
+}
+
+export default async function ContactPage() {
+  const [contact, brand, nav, countdown, footer] = await Promise.all([
+    getContact(),
+    getBrand(),
+    getNav(),
+    getCountdown(),
+    getFooter(),
+  ]);
+
   return (
     <div className="inner-page fade-in">
-      <CountdownBar />
-      <SiteNav />
+      <CountdownBar countdown={countdown} />
+      <SiteNav nav={nav} brand={brand} />
       <main>
         <section className="inner-hero" aria-labelledby="contact-title">
           <div className="inner-hero__copy">
             <p className="home-section-kicker">{contact.kicker}</p>
             <h1 className="inner-hero__title" id="contact-title">
-              Say <em>{contact.titleEm.replace("hey.", "hey.")}</em>
+              {contact.titleA}
+              <em>{contact.titleEm}</em>
             </h1>
             <p>{contact.intro}</p>
           </div>
@@ -38,19 +55,25 @@ export default function ContactPage() {
                 {card.email}
               </a>
               <div className="contact-social-row">
-                <a href={card.link.href} target="_blank" rel="noopener">
-                  {card.link.label}
+                <a href={card.linkLabel ? card.linkHref : "#"} target="_blank" rel="noopener">
+                  {card.linkLabel}
                 </a>
               </div>
             </article>
           ))}
         </section>
+
+        <section
+          style={{
+            padding: "clamp(20px, 4vw, 50px) clamp(24px, 5vw, 78px) clamp(80px, 10vw, 140px)",
+          }}
+        >
+          <ContactForm />
+        </section>
       </main>
-      <footer className="site-footer">
-        <div>
-          <p>© 2026 Learn AI With Layla. All rights reserved.</p>
-        </div>
-      </footer>
+      <HomeFooter footer={footer} brand={brand}>
+        <WaitlistForm source="contact" buttonText={footer.ctaButton} />
+      </HomeFooter>
     </div>
   );
 }

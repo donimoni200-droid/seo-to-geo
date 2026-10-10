@@ -3,10 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { nav, brand } from "@/lib/site-content";
+import type { Nav, Brand } from "@/lib/content";
 import { CaretIcon } from "./icons";
 
-export function SiteNav() {
+export function SiteNav({ nav, brand }: { nav: Nav; brand: Brand }) {
   const [ddOpen, setDdOpen] = useState(false);
   const pathname = usePathname();
 

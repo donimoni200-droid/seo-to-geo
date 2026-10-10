@@ -1,13 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { challengePage as cp } from "@/lib/site-content";
 
-export function FaqList() {
+export function FaqList({ items }: { items: { q: string; a: string }[] }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <div className="faq-list">
-      {cp.faq.items.map((item, i) => (
+      {items.map((item, i) => (
         <div key={i} className="faq-item" data-open={open === i}>
           <button
             type="button"

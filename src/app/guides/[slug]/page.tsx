@@ -3,32 +3,52 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { SiteNav } from "@/components/site/SiteNav";
 import { CountdownBar } from "@/components/site/CountdownBar";
-import { guides } from "@/lib/site-content";
+import { HomeFooter } from "@/components/site/HomeFooter";
+import { WaitlistForm } from "@/components/site/WaitlistForm";
+import {
+  getGuide,
+  getPublishedGuides,
+  getChallengePage,
+  getBrand,
+  getNav,
+  getCountdown,
+  getFooter,
+} from "@/lib/content";
+
+export const dynamic = "force-dynamic";
 
 type Props = { params: Promise<{ slug: string }> };
 
-export function generateStaticParams() {
-  return guides.map((g) => ({ slug: g.slug }));
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const guide = guides.find((g) => g.slug === slug);
+  const [guide, brand] = await Promise.all([getGuide(slug), getBrand()]);
   if (!guide) return { title: "Guide not found" };
-  return { title: `${guide.title} — Learn AI With Layla`, description: guide.desc };
+  return {
+    title: guide.title,
+    description: guide.desc,
+    openGraph: { title: guide.title, description: guide.desc, type: "article" },
+  };
 }
 
 export default async function GuidePage({ params }: Props) {
   const { slug } = await params;
-  const guide = guides.find((g) => g.slug === slug);
+  const [guide, guides, cp, brand, nav, countdown, footer] = await Promise.all([
+    getGuide(slug),
+    getPublishedGuides(),
+    getChallengePage(),
+    getBrand(),
+    getNav(),
+    getCountdown(),
+    getFooter(),
+  ]);
   if (!guide) notFound();
 
   const others = guides.filter((g) => g.slug !== slug).slice(0, 3);
 
   return (
     <div className="inner-page fade-in">
-      <CountdownBar />
-      <SiteNav />
+      <CountdownBar countdown={countdown} />
+      <SiteNav nav={nav} brand={brand} />
       <main>
         <article className="guide-article">
           <Link href="/guides" className="guide-article__back">
@@ -49,10 +69,10 @@ export default async function GuidePage({ params }: Props) {
           <div className="cta-box">
             <h3>Want the full system?</h3>
             <p>
-              The 30-Day AI Challenge walks you from zero to a complete AI system for your life,
-              work, and business — one short build a day.
+              The 30-Day GEO Challenge walks you from invisible in AI answers to a complete
+              citation system for your brand — one short build a day.
             </p>
-            <Link href="/challenge">See the Challenge →</Link>
+            <Link href="/challenge">{cp.final.cta}</Link>
           </div>
         </article>
         <section style={{ padding: "0 clamp(24px, 5vw, 78px) 90px" }}>
@@ -77,11 +97,9 @@ export default async function GuidePage({ params }: Props) {
           </div>
         </section>
       </main>
-      <footer className="site-footer">
-        <div>
-          <p>© 2026 Learn AI With Layla. All rights reserved.</p>
-        </div>
-      </footer>
+      <HomeFooter footer={footer} brand={brand}>
+        <WaitlistForm source={`guide-${slug}`} buttonText={footer.ctaButton} />
+      </HomeFooter>
     </div>
   );
 }

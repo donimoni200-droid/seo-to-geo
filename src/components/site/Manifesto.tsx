@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { manifesto } from "@/lib/site-content";
+import type { Manifesto } from "@/lib/content";
 
 /* Orbiting glass chips around the sticky manifesto section */
-export function Manifesto() {
+export function Manifesto({ manifesto }: { manifesto: Manifesto }) {
   const sectionRef = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0); // 0..1 through the tall section
 
@@ -47,7 +47,12 @@ export function Manifesto() {
     };
   };
 
-  const chipClasses = ["orbit-object--openai", "orbit-object--gemini", "orbit-object--claude", "orbit-object--meta"];
+  const chipClasses = [
+    "orbit-object--openai",
+    "orbit-object--gemini",
+    "orbit-object--claude",
+    "orbit-object--meta",
+  ];
 
   return (
     <section className="home-manifesto" id="about" ref={sectionRef}>
@@ -67,7 +72,7 @@ export function Manifesto() {
       {manifesto.chips.map((chip, i) => (
         <div
           key={chip}
-          className={`orbit-object orbit-object--chip ${chipClasses[i]}`}
+          className={`orbit-object orbit-object--chip ${chipClasses[i % 4]}`}
           data-orbit-object
           aria-hidden="true"
           style={orbitStyle(i)}

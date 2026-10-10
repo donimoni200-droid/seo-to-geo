@@ -1,21 +1,42 @@
 import type { Metadata } from "next";
 import { SiteNav } from "@/components/site/SiteNav";
 import { CountdownBar } from "@/components/site/CountdownBar";
-import { challengePage as cp } from "@/lib/site-content";
 import { Reveal } from "@/components/site/Reveal";
 import { FaqList } from "@/components/site/FaqList";
+import { HomeFooter } from "@/components/site/HomeFooter";
+import { WaitlistForm } from "@/components/site/WaitlistForm";
+import {
+  getChallengePage,
+  getBrand,
+  getNav,
+  getCountdown,
+  getFooter,
+} from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "The AI Challenge | Join the Waitlist — Learn AI With Layla",
-  description:
-    "Thousands have gone from zero to building with AI in 30 guided days. Doors are closed — join the waitlist to hear first.",
-};
+export const dynamic = "force-dynamic";
 
-export default function ChallengePage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const [brand, cp] = await Promise.all([getBrand(), getChallengePage()]);
+  return {
+    title: `${cp.heroKicker} | Join the Waitlist`,
+    description:
+      "Brands and marketers have gone from invisible in AI answers to cited by ChatGPT, Perplexity, and Gemini in 30 guided days. Doors are closed — join the waitlist.",
+  };
+}
+
+export default async function ChallengePage() {
+  const [cp, brand, nav, countdown, footer] = await Promise.all([
+    getChallengePage(),
+    getBrand(),
+    getNav(),
+    getCountdown(),
+    getFooter(),
+  ]);
+
   return (
     <div className="inner-page fade-in">
-      <CountdownBar />
-      <SiteNav />
+      <CountdownBar countdown={countdown} />
+      <SiteNav nav={nav} brand={brand} />
       <main>
         {/* HERO */}
         <section className="inner-hero">
@@ -35,7 +56,7 @@ export default function ChallengePage() {
           </div>
           <div className="inner-hero__visual">
             { }
-            <img src="/assets/sections/challenge-desk.png" alt="Working through the daily AI Challenge builds" />
+            <img src="/assets/sections/challenge-desk.png" alt="Working through the daily GEO Challenge builds" />
           </div>
         </section>
 
@@ -54,7 +75,7 @@ export default function ChallengePage() {
           </div>
           <Reveal className="split-section__media">
             { }
-            <img src="/assets/about/journey-2025.png" alt="AI running operations in the background" />
+            <img src="/assets/about/journey-2025.png" alt="AI engines citing the brand in generated answers" />
           </Reveal>
         </section>
 
@@ -68,7 +89,7 @@ export default function ChallengePage() {
           </div>
           <Reveal className="split-section__media">
             { }
-            <img src="/assets/about/journey-now.png" alt="Teaching practical AI workflows" />
+            <img src="/assets/about/journey-now.png" alt="Teaching practical GEO workflows" />
           </Reveal>
         </section>
 
@@ -163,7 +184,7 @@ export default function ChallengePage() {
         <section className="split-section split-section--flip">
           <Reveal className="split-section__media">
             { }
-            <img src="/assets/sections/paths-portrait.png" alt="Challenge graduate" />
+            <img src="/assets/sections/paths-portrait.png" alt="GEO Challenge graduate" />
           </Reveal>
           <div className="split-section__copy">
             <h2 className="split-section__title">{cp.certificate.title}</h2>
@@ -178,7 +199,7 @@ export default function ChallengePage() {
           <div className="section-heading">
             <h2>{cp.faq.title}</h2>
           </div>
-          <FaqList />
+          <FaqList items={cp.faq.items} />
         </section>
 
         {/* FINAL CTA */}
@@ -188,17 +209,13 @@ export default function ChallengePage() {
             <br />
             {cp.final.titleB}
           </h2>
-          <a className="big-cta-btn" href="#waitlist">
-            {cp.final.cta}
-          </a>
+          <WaitlistForm source="challenge" buttonText={cp.final.cta} />
           <p className="status-line">{cp.final.sub}</p>
         </section>
       </main>
-      <footer className="site-footer">
-        <div>
-          <p>© 2026 Learn AI With Layla. All rights reserved.</p>
-        </div>
-      </footer>
+      <HomeFooter footer={footer} brand={brand}>
+        <WaitlistForm source="challenge-footer" buttonText={footer.ctaButton} />
+      </HomeFooter>
     </div>
   );
 }

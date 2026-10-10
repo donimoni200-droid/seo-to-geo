@@ -2,11 +2,19 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { nav, socials } from "@/lib/site-content";
+import type { Nav, Socials, Brand } from "@/lib/content";
 import { SiteLogo } from "./SiteLogo";
 import { InstagramIcon, TikTokIcon, CaretIcon } from "./icons";
 
-export function HomeHeader() {
+export function HomeHeader({
+  nav,
+  socials,
+  brand,
+}: {
+  nav: Nav;
+  socials: Socials;
+  brand: Brand;
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [ddOpen, setDdOpen] = useState(false);
@@ -24,12 +32,12 @@ export function HomeHeader() {
       data-open={open}
     >
       <div className="home-header__inner">
-        <Link href="/" className="home-header__brand" aria-label={`${nav.cta.label} — home`}>
+        <Link href="/" className="home-header__brand" aria-label={`${brand.name} — home`}>
           <span className="home-header__logo home-header__logo--red" style={{ color: "#d02e2e" }}>
-            <SiteLogo variant="red" />
+            <SiteLogo variant="red" name={brand.name} emWord={brand.emWord} />
           </span>
           <span className="home-header__logo home-header__logo--cream" style={{ color: "#fffae7" }}>
-            <SiteLogo variant="cream" />
+            <SiteLogo variant="cream" name={brand.name} emWord={brand.emWord} />
           </span>
         </Link>
         <button

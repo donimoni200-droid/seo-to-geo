@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,20 +7,53 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+/* Admin user for the /admin panel — password stored as scrypt hash */
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+/* Every editable content section of the public site, stored as JSON */
+model Content {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+/* Free guides (blog) — fully manageable from the admin panel */
+model Guide {
   id        String   @id @default(cuid())
-  email     String   @unique
-  name      String?
+  slug      String   @unique
+  tag       String   @default("General")
+  title     String
+  desc      String   @default("")
+  readTime  String   @default("5 min")
+  body      String   @default("[]") // JSON: [{ heading, paras: string[] }]
+  published Boolean  @default(true)
+  order     Int      @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Post {
+/* Waitlist / newsletter signups */
+model Subscriber {
   id        String   @id @default(cuid())
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  authorId  String
+  email     String   @unique
+  source    String   @default("site")
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+}
+
+/* Contact form messages */
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String   @default("")
+  body      String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
 }

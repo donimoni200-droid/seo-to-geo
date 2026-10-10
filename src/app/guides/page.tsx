@@ -2,43 +2,64 @@ import type { Metadata } from "next";
 import { SiteNav } from "@/components/site/SiteNav";
 import { CountdownBar } from "@/components/site/CountdownBar";
 import { GuidesList } from "@/components/site/GuidesList";
+import { HomeFooter } from "@/components/site/HomeFooter";
+import { WaitlistForm } from "@/components/site/WaitlistForm";
+import {
+  getGuidesSection,
+  getPublishedGuides,
+  guideTags,
+  getBrand,
+  getNav,
+  getCountdown,
+  getFooter,
+} from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "Free AI Guides — Learn AI With Layla",
-  description:
-    "Bite-sized guides to help you get more out of AI — from first setup to advanced multi-agent workflows.",
-};
+export const dynamic = "force-dynamic";
 
-export default function GuidesPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const [brand, section] = await Promise.all([getBrand(), getGuidesSection()]);
+  return {
+    title: "Free GEO Guides",
+    description: section.desc,
+  };
+}
+
+export default async function GuidesPage() {
+  const [section, guides, brand, nav, countdown, footer] = await Promise.all([
+    getGuidesSection(),
+    getPublishedGuides(),
+    getBrand(),
+    getNav(),
+    getCountdown(),
+    getFooter(),
+  ]);
+
   return (
     <div className="inner-page fade-in">
-      <CountdownBar />
-      <SiteNav />
+      <CountdownBar countdown={countdown} />
+      <SiteNav nav={nav} brand={brand} />
       <main>
         <section className="inner-hero" style={{ minHeight: 380 }}>
           <div className="inner-hero__copy">
-            <p className="home-section-kicker">The free library</p>
+            <p className="home-section-kicker">{section.kicker}</p>
             <h1 className="inner-hero__title">
-              Free <em>guides</em>
+              {section.titleA}
+              <em>{section.titleEm}</em>
+              {section.titleB}
             </h1>
-            <p>
-              Bite-sized guides to help you get more out of AI — from first setup to advanced
-              multi-agent workflows. New guides every week.
-            </p>
+            <p>{section.desc} New guides every week.</p>
           </div>
           <div className="inner-hero__visual">
             { }
-            <img src="/assets/sections/social-studio.png" alt="The guides library" />
+            <img src="/assets/sections/social-studio.png" alt="The GEO guides library" />
           </div>
         </section>
 
-        <GuidesList />
+        <GuidesList guides={guides} filters={guideTags(guides)} />
       </main>
-      <footer className="site-footer">
-        <div>
-          <p>© 2026 Learn AI With Layla. All rights reserved.</p>
-        </div>
-      </footer>
+      <HomeFooter footer={footer} brand={brand}>
+        <WaitlistForm source="guides" buttonText={footer.ctaButton} />
+      </HomeFooter>
     </div>
   );
 }

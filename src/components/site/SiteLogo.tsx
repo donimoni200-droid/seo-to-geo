@@ -1,10 +1,19 @@
-import { brand } from "@/lib/site-content";
+import type { Brand } from "@/lib/content";
 
 /* Brand wordmark — text-based logo with the signature italic serif middle word */
-export function SiteLogo({ variant = "red" }: { variant?: "red" | "cream" }) {
-  const words = brand.name.split(" ");
-  // Learn AI With Layla -> [Learn, AI, With, Layla]; italicize the middle word
-  const emIndex = words.findIndex((w) => w === brand.emWord);
+export function SiteLogo({
+  variant = "red",
+  name,
+  emWord,
+}: {
+  variant?: "red" | "cream";
+  name?: string;
+  emWord?: string;
+} & Partial<Brand>) {
+  const words = (name || "SEO to GEO With Layla").split(" ");
+  const em = emWord || "With";
+  // Italicize the signature middle word (e.g. "With")
+  const emIndex = words.findIndex((w) => w === em);
   return (
     <span
       className={`site-logo site-logo--${variant}`}
