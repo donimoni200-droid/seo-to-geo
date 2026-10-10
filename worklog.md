@@ -45,3 +45,23 @@ Stage Summary:
 - Live: https://seo-to-geo-production.up.railway.app
 - Admin: /admin/login — admin@seotogeo.io / GEO-Admin-2026! (change in Account page)
 - Data persists on volume /data; redeployments keep content.
+
+---
+Task ID: 3
+Agent: Main agent (Super Z)
+Task: Remove the "Layla" branding entirely, turn the site into a BLOGS-first platform with per-post PDF downloads, add professional logo-based page transitions, and highlight the active nav item. Keep the same Railway domain.
+
+Work Log:
+- New logo (upload/FINAL_seotogeohq_logo.png, 1080×1080 red badge) copied to public/assets/brand/logo.png; used in header, inner nav, footer, admin sidebar, OG image, and as the transition mark (gentle float animation in headers).
+- Brand rebranded to "SEO to GEO HQ": site.json defaults, layout/admin fallbacks, AccountForms placeholder, seed.mjs admin name; unused leftover src/lib/site-content.ts deleted.
+- Guides → BLOGS: new routes /blogs + /blogs/[slug] (old /guides 308-redirects via next.config), nav/footer/dropdown labels + hrefs, blog wording in GuidesList/HomeSections/guidesSection defaults, admin relabeled (sidebar "Blogs", dashboard stat, form fields, toasts).
+- PDF downloads: Guide.pdfPath/pdfName columns (migration 20261011000000_add_guide_pdf, applied + resolved locally, drift indexes fixed), src/lib/uploads.ts (volume-aware dir), uploadGuidePdfAction/removeGuidePdfAction (magic-byte + 25MB validation), delete-cleanup, public GET /api/blogs/[slug]/pdf with Content-Disposition, red download box on post pages, PDF chips on cards/rows, PDF column + CopyLinkButton in admin lists (Instagram DM workflow).
+- Page transitions: src/components/site/PageTransition.tsx + CSS — logo curtain (intro on first load, cover→reveal on client nav, rAF timing, prefers-reduced-motion respected).
+- Active nav: HomeHeader + SiteNav mark current page (red/cream + animated underline); "Learn GEO" dropdown marked active on /blogs/*.
+- scripts/fix-brand.mjs (idempotent) migrates DB content (Layla removal, /guides→/blogs, blog wording) and admin name; wired into scripts/start.mjs after seed.
+- Git: untracked internal leftovers removed (.zscripts, upload/), origin fixed to seo-to-geo, pushed b021ce7.
+- Railway: CLI v5 reinstalled, project linked, `railway up` redeployed to the SAME service/domain.
+
+Stage Summary:
+- Verified locally + on production: all routes 200, /guides 308→/blogs, zero "Layla" anywhere, brand "SEO to GEO HQ" everywhere (incl. prod DB via fix-brand.mjs), logo in all chrome, transitions observed (intro/cover/reveal) on production, active nav states render, admin login OK (GEO-Admin-2026!), PDF upload→download→remove E2E locally (483-byte test PDF), prod admin shows PDF column + copy-link buttons.
+- Live: https://seo-to-geo-production.up.railway.app (domain unchanged). Lint clean (2 pre-existing shadcn warnings only).
