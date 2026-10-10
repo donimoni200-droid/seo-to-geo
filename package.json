@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev -p 3000 2>&1 | tee dev.log",
     "build": "next build",
-    "start": "next start",
+    "start": "node scripts/start.mjs",
     "postinstall": "prisma generate",
     "seed": "node prisma/seed.mjs",
     "lint": "eslint .",

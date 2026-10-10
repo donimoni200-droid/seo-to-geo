@@ -10,7 +10,8 @@ examples
 mini-services
 tests
 .zscripts
-scripts
+scripts/generate_images.sh
+scripts/log_proxy.py
 prisma/db
 db
 original_site.html
@@ -20,3 +21,6 @@ Caddyfile
 worklog.md
 bun.lock
 research
+.env
+.env.*
+!.env.example

@@ -4,7 +4,7 @@
     "buildCommand": "npm run build"
   },
   "deploy": {
-    "startCommand": "npx prisma migrate deploy && node prisma/seed.mjs && npm run start",
+    "startCommand": "mkdir -p /data && DATABASE_URL=${DATABASE_URL:-file:/data/site.db} npx prisma migrate deploy && DATABASE_URL=${DATABASE_URL:-file:/data/site.db} node prisma/seed.mjs && npm run start",
     "healthcheckPath": "/",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",

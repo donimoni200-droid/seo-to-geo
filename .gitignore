@@ -40,6 +40,8 @@ agent-ctx/
 skills/
 site_analysis/
 .zscripts/
+scripts/generate_images.sh
+scripts/log_proxy.py
 tests/
 examples/
 mini-services/
@@ -49,4 +51,4 @@ Caddyfile
 .railwayignore
 download/
 original_site.html
-scripts/
+
