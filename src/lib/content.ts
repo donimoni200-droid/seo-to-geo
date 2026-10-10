@@ -41,6 +41,8 @@ export type Guide = {
   body: GuideBody[];
   published: boolean;
   order: number;
+  pdfPath?: string | null;
+  pdfName?: string | null;
 };
 
 export const DEFAULT_GUIDES = rawGuides as unknown as Guide[];
@@ -159,6 +161,8 @@ export const getGuides = cache(async (): Promise<Guide[]> => {
           body,
           published: r.published,
           order: r.order,
+          pdfPath: r.pdfPath ?? null,
+          pdfName: r.pdfName ?? null,
         };
       });
     }

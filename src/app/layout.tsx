@@ -4,6 +4,7 @@ import "./globals.css";
 import "./site.css";
 import { Toaster } from "@/components/ui/toaster";
 import { getBrand } from "@/lib/content";
+import { PageTransition } from "@/components/site/PageTransition";
 
 const anton = Anton({
   variable: "--font-anton-load",
@@ -39,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
   try {
     brand = await getBrand();
   } catch {
-    brand = { name: "SEO to GEO With Layla", footerTagline: "From rankings to AI citations." };
+    brand = { name: "SEO to GEO HQ", footerTagline: "From rankings to AI citations." };
   }
   return {
     title: {
@@ -52,6 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: brand.name,
       description: brand.footerTagline,
       type: "website",
+      images: ["/assets/brand/logo.png"],
     },
   };
 }
@@ -66,6 +68,7 @@ export default function RootLayout({
       <body
         className={`${anton.variable} ${oswald.variable} ${openSans.variable} ${playfair.variable} site-body antialiased`}
       >
+        <PageTransition />
         {children}
         <Toaster />
       </body>

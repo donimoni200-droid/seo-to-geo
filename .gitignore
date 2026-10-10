@@ -52,3 +52,7 @@ Caddyfile
 download/
 original_site.html
 
+
+# uploads (runtime PDF attachments + user assets)
+uploads/
+upload/

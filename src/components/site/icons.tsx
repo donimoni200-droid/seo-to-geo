@@ -17,3 +17,23 @@ export function TikTokIcon({ size = 24 }: { size?: number }) {
 export function CaretIcon() {
   return <span className="site-nav__dropdown-caret" aria-hidden="true">▾</span>;
 }
+
+export function DownloadIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 3v12" />
+      <path d="m6 11 6 6 6-6" />
+      <path d="M4 21h16" />
+    </svg>
+  );
+}

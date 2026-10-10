@@ -31,7 +31,7 @@ async function main() {
   const adminCount = await db.adminUser.count();
   if (adminCount === 0) {
     await db.adminUser.create({
-      data: { email, passwordHash: hashPassword(password), name: "Layla" },
+      data: { email, passwordHash: hashPassword(password), name: "SEO to GEO HQ" },
     });
     console.log(`✔ Admin user created: ${email}`);
   } else {

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { Nav, Socials, Brand } from "@/lib/content";
-import { SiteLogo } from "./SiteLogo";
 import { InstagramIcon, TikTokIcon, CaretIcon } from "./icons";
 
 export function HomeHeader({
@@ -18,6 +18,10 @@ export function HomeHeader({
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [ddOpen, setDdOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -33,11 +37,14 @@ export function HomeHeader({
     >
       <div className="home-header__inner">
         <Link href="/" className="home-header__brand" aria-label={`${brand.name} — home`}>
-          <span className="home-header__logo home-header__logo--red" style={{ color: "#d02e2e" }}>
-            <SiteLogo variant="red" name={brand.name} emWord={brand.emWord} />
-          </span>
-          <span className="home-header__logo home-header__logo--cream" style={{ color: "#fffae7" }}>
-            <SiteLogo variant="cream" name={brand.name} emWord={brand.emWord} />
+          <span className={`home-header__logobadge${scrolled ? " is-scrolled" : ""}`}>
+            <img
+              src="/assets/brand/logo.png"
+              alt={`${brand.name} logo`}
+              width={42}
+              height={42}
+              draggable={false}
+            />
           </span>
         </Link>
         <button
@@ -52,13 +59,19 @@ export function HomeHeader({
         <ul className="home-header__menu" id="home-menu">
           {nav.links.map((l) => (
             <li key={l.href}>
-              <Link href={l.href} className={l.highlight ? "nav-challenge" : undefined}>
+              <Link
+                href={l.href}
+                className={`${l.highlight ? "nav-challenge" : ""} ${
+                  isActive(l.href) ? "active" : ""
+                }`}
+                aria-current={isActive(l.href) ? "page" : undefined}
+              >
                 {l.label}
               </Link>
             </li>
           ))}
           <li
-            className={`site-nav__dropdown${ddOpen ? "" : ""}`}
+            className={`site-nav__dropdown${pathname.startsWith("/blogs") ? " is-dd-active" : ""}`}
             data-nav-dd
             data-open={ddOpen}
           >
@@ -82,7 +95,13 @@ export function HomeHeader({
             </ul>
           </li>
           <li>
-            <Link href={nav.contact.href}>{nav.contact.label}</Link>
+            <Link
+              href={nav.contact.href}
+              className={isActive(nav.contact.href) ? "active" : undefined}
+              aria-current={isActive(nav.contact.href) ? "page" : undefined}
+            >
+              {nav.contact.label}
+            </Link>
           </li>
         </ul>
         <div className="home-header__actions">

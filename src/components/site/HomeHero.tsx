@@ -33,7 +33,7 @@ export function HomeHero({ hero }: { hero: Hero }) {
       <picture className="home-hero__media">
         <source media="(max-width: 760px)" srcSet="/assets/hero/hero-mobile.png" />
         { }
-        <img src="/assets/hero/hero-desktop.png" alt={`${hero.titleB} — SEO to GEO strategist and founder`} />
+        <img src="/assets/hero/hero-desktop.png" alt={`${hero.titleB} — the SEO to GEO HQ studio desk`} />
       </picture>
       <h1 className="home-hero__title" id="home-hero-title">
         {hero.titleA} <em>{hero.titleEm}</em> {hero.titleB}

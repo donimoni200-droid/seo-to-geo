@@ -35,7 +35,7 @@ export function AccountForms({
         <h2 className="admin-card__title">Profile</h2>
         <div className="space-y-1.5">
           <Label htmlFor="acc-name">Display name</Label>
-          <Input id="acc-name" name="name" defaultValue={name} placeholder="Layla" />
+          <Input id="acc-name" name="name" defaultValue={name} placeholder="Your name" />
         </div>
         <div className="space-y-1.5">
           <Label htmlFor="acc-email">Login email</Label>

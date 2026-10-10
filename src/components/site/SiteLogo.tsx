@@ -1,53 +1,32 @@
 import type { Brand } from "@/lib/content";
 
-/* Brand wordmark — text-based logo with the signature italic serif middle word */
+/* Brand logo — the SEO to GEO HQ badge image, with a gentle
+   floating animation. Used in header, nav, footer and the
+   page-transition overlay. */
 export function SiteLogo({
   variant = "red",
   name,
-  emWord,
+  size = 40,
+  className,
 }: {
-  variant?: "red" | "cream";
+  variant?: "red" | "cream" | "plain";
   name?: string;
-  emWord?: string;
+  size?: number;
+  className?: string;
 } & Partial<Brand>) {
-  const words = (name || "SEO to GEO With Layla").split(" ");
-  const em = emWord || "With";
-  // Italicize the signature middle word (e.g. "With")
-  const emIndex = words.findIndex((w) => w === em);
+  const alt = name || "SEO to GEO HQ";
   return (
     <span
-      className={`site-logo site-logo--${variant}`}
-      style={{
-        fontFamily: "var(--font-display)",
-        fontWeight: 700,
-        fontSize: "clamp(1.15rem, 2vw, 1.5rem)",
-        letterSpacing: "0.02em",
-        textTransform: "uppercase",
-        whiteSpace: "nowrap",
-        lineHeight: 1,
-      }}
+      className={`brand-logo brand-logo--${variant} ${className ?? ""}`}
+      style={{ width: size, height: size }}
     >
-      {words.map((w, i) =>
-        i === emIndex ? (
-          <em
-            key={i}
-            style={{
-              fontFamily: "var(--font-serif)",
-              fontStyle: "italic",
-              fontWeight: 500,
-              textTransform: "none",
-              fontSize: "1.05em",
-              margin: "0 0.12em",
-            }}
-          >
-            {w}
-          </em>
-        ) : (
-          <span key={i} style={{ margin: "0 0.08em" }}>
-            {w}
-          </span>
-        )
-      )}
+      <img
+        src="/assets/brand/logo.png"
+        alt={alt}
+        width={size}
+        height={size}
+        draggable={false}
+      />
     </span>
   );
 }

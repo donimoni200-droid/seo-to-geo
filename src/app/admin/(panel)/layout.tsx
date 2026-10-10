@@ -20,7 +20,7 @@ export default async function AdminPanelLayout({
   try {
     brand = await getBrand();
   } catch {
-    brand = { name: "SEO to GEO", firstName: "Layla", emWord: "With", footerTagline: "", year: 2026 };
+    brand = { name: "SEO to GEO HQ", firstName: "", emWord: "to", footerTagline: "", year: 2026 };
   }
 
   return (

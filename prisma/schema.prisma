@@ -24,7 +24,7 @@ model Content {
   updatedAt DateTime @updatedAt
 }
 
-/* Free guides (blog) — fully manageable from the admin panel */
+/* Blog posts (guides) — fully manageable from the admin panel */
 model Guide {
   id        String   @id @default(cuid())
   slug      String   @unique
@@ -35,6 +35,8 @@ model Guide {
   body      String   @default("[]") // JSON: [{ heading, paras: string[] }]
   published Boolean  @default(true)
   order     Int      @default(0)
+  pdfPath   String?  // server path of the uploaded PDF (downloadable file)
+  pdfName   String?  // original filename shown to visitors
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

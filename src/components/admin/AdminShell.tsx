@@ -38,7 +38,7 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
 
   const fixed = [
     { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
-    { href: "/admin/guides", label: "Guides (blog)", icon: FileText },
+    { href: "/admin/guides", label: "Blogs", icon: FileText },
     { href: "/admin/messages", label: "Messages", icon: Inbox },
     { href: "/admin/subscribers", label: "Subscribers", icon: Users },
     { href: "/admin/account", label: "Account", icon: Settings },
@@ -87,7 +87,13 @@ export function AdminShell({ siteName, userName, userEmail, children }: Props) {
     <div className="admin-shell">
       <aside className="admin-sidebar">
         <div className="admin-sidebar__brand">
-          <span className="admin-sidebar__dot" aria-hidden />
+          <img
+            src="/assets/brand/logo.png"
+            alt={`${siteName} logo`}
+            width={34}
+            height={34}
+            style={{ borderRadius: 5, boxShadow: "0 2px 10px rgba(47,45,45,0.25)" }}
+          />
           <div>
             <p className="admin-sidebar__name">{siteName}</p>
             <p className="admin-sidebar__sub">Admin Panel</p>
@@ -122,7 +128,13 @@ export function AdminShell({ siteName, userName, userEmail, children }: Props) {
               <SheetContent side="left" className="w-72 p-0 bg-[#fffae7]">
                 <SheetTitle className="sr-only">Admin menu</SheetTitle>
                 <div className="admin-sidebar__brand">
-                  <span className="admin-sidebar__dot" aria-hidden />
+                  <img
+                    src="/assets/brand/logo.png"
+                    alt={`${siteName} logo`}
+                    width={34}
+                    height={34}
+                    style={{ borderRadius: 5, boxShadow: "0 2px 10px rgba(47,45,45,0.25)" }}
+                  />
                   <div>
                     <p className="admin-sidebar__name">{siteName}</p>
                     <p className="admin-sidebar__sub">Admin Panel</p>

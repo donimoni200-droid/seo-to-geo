@@ -1,8 +1,8 @@
 {
   "brand": {
-    "name": "SEO to GEO With Layla",
-    "firstName": "Layla",
-    "emWord": "With",
+    "name": "SEO to GEO HQ",
+    "firstName": "",
+    "emWord": "to",
     "footerTagline": "From rankings to AI citations.",
     "year": 2026
   },
@@ -22,18 +22,18 @@
   },
   "nav": {
     "links": [
+      { "label": "BLOGS", "href": "/blogs" },
       { "label": "About", "href": "/about" },
-      { "label": "GEO Challenge", "href": "/challenge", "highlight": true },
-      { "label": "Free Guides", "href": "/guides" }
+      { "label": "GEO Challenge", "href": "/challenge", "highlight": true }
     ],
     "dropdown": {
       "trigger": "Learn GEO",
       "items": [
-        { "label": "Start Here: What Is GEO?", "href": "/guides/what-is-geo" },
-        { "label": "Get Cited In AI Answers", "href": "/guides/how-to-get-cited-by-ai" },
-        { "label": "Rank In Google AI Overviews", "href": "/guides/rank-in-google-ai-overviews" },
-        { "label": "Get Recommended By ChatGPT", "href": "/guides/get-recommended-by-chatgpt" },
-        { "label": "Measure AI Visibility", "href": "/guides/measure-ai-visibility" },
+        { "label": "Start Here: What Is GEO?", "href": "/blogs/what-is-geo" },
+        { "label": "Get Cited In AI Answers", "href": "/blogs/how-to-get-cited-by-ai" },
+        { "label": "Rank In Google AI Overviews", "href": "/blogs/rank-in-google-ai-overviews" },
+        { "label": "Get Recommended By ChatGPT", "href": "/blogs/get-recommended-by-chatgpt" },
+        { "label": "Measure AI Visibility", "href": "/blogs/measure-ai-visibility" },
         { "label": "Weekend GEO Bootcamp", "href": "/bootcamp" }
       ]
     },
@@ -42,8 +42,8 @@
   },
   "hero": {
     "titleA": "Hey,",
-    "titleEm": "I'm",
-    "titleB": "Layla",
+    "titleEm": "we're",
+    "titleB": "SEO to GEO HQ.",
     "callouts": [
       { "text": ["Talking about", "SEO → GEO"] },
       { "text": ["Former search", "agency lead"] },
@@ -103,12 +103,12 @@
     ]
   },
   "guidesSection": {
-    "kicker": "The free library",
-    "titleA": "Recent ",
+    "kicker": "The blog",
+    "titleA": "Latest ",
     "titleEm": "GEO",
-    "titleB": " guides",
-    "desc": "Bite-sized guides on getting your brand cited by ChatGPT, Perplexity, Gemini, and Google AI Overviews — no jargon, all signal.",
-    "cta": "Browse all guides →"
+    "titleB": " posts",
+    "desc": "New blog posts on getting your brand cited by ChatGPT, Perplexity, Gemini, and Google AI Overviews — no jargon, all signal, many with free PDF downloads.",
+    "cta": "Browse all blogs →"
   },
   "socialSection": {
     "kicker": "Everywhere daily",
@@ -124,19 +124,19 @@
       {
         "label": "Explore",
         "links": [
+          { "label": "BLOGS", "href": "/blogs" },
           { "label": "About", "href": "/about" },
           { "label": "GEO Challenge", "href": "/challenge" },
-          { "label": "Free Guides", "href": "/guides" },
           { "label": "Community", "href": "/community" }
         ]
       },
       {
         "label": "Learn GEO",
         "links": [
-          { "label": "What Is GEO?", "href": "/guides/what-is-geo" },
-          { "label": "Get Cited In AI Answers", "href": "/guides/how-to-get-cited-by-ai" },
-          { "label": "Rank In AI Overviews", "href": "/guides/rank-in-google-ai-overviews" },
-          { "label": "Get Recommended By ChatGPT", "href": "/guides/get-recommended-by-chatgpt" },
+          { "label": "What Is GEO?", "href": "/blogs/what-is-geo" },
+          { "label": "Get Cited In AI Answers", "href": "/blogs/how-to-get-cited-by-ai" },
+          { "label": "Rank In AI Overviews", "href": "/blogs/rank-in-google-ai-overviews" },
+          { "label": "Get Recommended By ChatGPT", "href": "/blogs/get-recommended-by-chatgpt" },
           { "label": "Weekend GEO Bootcamp", "href": "/bootcamp" }
         ]
       },
@@ -153,12 +153,12 @@
     "ctaText": "Join 4,000+ brands and marketers building their AI visibility.",
     "ctaButton": "Join the waitlist",
     "ctaHref": "/challenge",
-    "bottomLeft": "© 2026 SEO to GEO With Layla. All rights reserved.",
+    "bottomLeft": "© 2026 SEO to GEO HQ. All rights reserved.",
     "bottomRight": "From rankings to AI citations."
   },
   "about": {
-    "titleA": "Layla ",
-    "titleEm": "Haddad",
+    "titleA": "SEO to ",
+    "titleEm": "GEO HQ",
     "beats": [
       "Years running search campaigns for global brands taught me how the SERP really works — and where its weaknesses are.",
       "Then AI answers started resolving queries before the click, and I rebuilt my entire playbook around citations instead of positions.",
@@ -214,8 +214,8 @@
       "body": "You do not need to code. You do not need a technical SEO background. The Challenge is built for normal busy people: brand owners, marketers, freelancers, and agencies. Every build is click-by-click, in plain language, and by day 30 you own a working AI visibility system you built yourself."
     },
     "intro": {
-      "title": "Hey, I'm Layla.",
-      "body": "I spent a decade running search campaigns for global brands, then watched AI answers start replacing the clicks I used to win. I rebuilt my entire playbook around citations — and today my brands and clients get recommended by ChatGPT, Perplexity, and Gemini daily. This Challenge is the exact path I would give my past self."
+      "title": "Hey, welcome.",
+      "body": "We spent a decade running search campaigns for global brands, then watched AI answers start replacing the clicks we used to win. We rebuilt the entire playbook around citations — and today our brands and clients get recommended by ChatGPT, Perplexity, and Gemini daily. This Challenge is the exact path we would give our past selves."
     },
     "socialProof": {
       "title": "1,900+ Brands And Marketers Have Gone From Invisible To Cited.",
@@ -364,11 +364,11 @@
       "suiteHeadingA": "The ",
       "suiteHeadingEm": "full suite",
       "items": [
-        { "label": "GEO Audit Agent", "href": "/guides/how-to-get-cited-by-ai", "desc": "Audits any page for citation-readiness — entity clarity, extractable answers, and the gaps engines trip over." },
-        { "label": "Citation Tracker Agent", "href": "/guides/measure-ai-visibility", "desc": "Runs your weekly prompt set across engines and reports who got cited, mentioned, and described how." },
-        { "label": "AI Overviews Specialist", "href": "/guides/rank-in-google-ai-overviews", "desc": "Watches which pages Google pulls into generated answers in your category and reverse-engineers why." },
-        { "label": "ChatGPT Watcher", "href": "/guides/get-recommended-by-chatgpt", "desc": "Tracks how ChatGPT recommends products in your category — and which consensus sources feed it." },
-        { "label": "Competitor Scout", "href": "/guides/geo-vs-seo-vs-aeo", "desc": "Maps the mentions, reviews, and listicles propping up your competitors' AI visibility — and yours." }
+        { "label": "GEO Audit Agent", "href": "/blogs/how-to-get-cited-by-ai", "desc": "Audits any page for citation-readiness — entity clarity, extractable answers, and the gaps engines trip over." },
+        { "label": "Citation Tracker Agent", "href": "/blogs/measure-ai-visibility", "desc": "Runs your weekly prompt set across engines and reports who got cited, mentioned, and described how." },
+        { "label": "AI Overviews Specialist", "href": "/blogs/rank-in-google-ai-overviews", "desc": "Watches which pages Google pulls into generated answers in your category and reverse-engineers why." },
+        { "label": "ChatGPT Watcher", "href": "/blogs/get-recommended-by-chatgpt", "desc": "Tracks how ChatGPT recommends products in your category — and which consensus sources feed it." },
+        { "label": "Competitor Scout", "href": "/blogs/geo-vs-seo-vs-aeo", "desc": "Maps the mentions, reviews, and listicles propping up your competitors' AI visibility — and yours." }
       ]
     }
   }

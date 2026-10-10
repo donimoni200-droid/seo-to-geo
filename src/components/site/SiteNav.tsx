@@ -10,15 +10,30 @@ export function SiteNav({ nav, brand }: { nav: Nav; brand: Brand }) {
   const [ddOpen, setDdOpen] = useState(false);
   const pathname = usePathname();
 
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
     <nav className="site-nav" aria-label="Main navigation">
       <div className="site-nav__inner">
-        <Link href="/" className="site-nav__brand">
-          {brand.name}
+        <Link href="/" className="site-nav__brand" aria-label={`${brand.name} — home`}>
+          <span className="site-nav__logobadge">
+            <img
+              src="/assets/brand/logo.png"
+              alt={`${brand.name} logo`}
+              width={38}
+              height={38}
+              draggable={false}
+            />
+          </span>
         </Link>
         <ul className="site-nav__links">
           <li>
-            <Link href="/" className={pathname === "/" ? "active" : undefined}>
+            <Link
+              href="/"
+              className={pathname === "/" ? "active" : undefined}
+              aria-current={pathname === "/" ? "page" : undefined}
+            >
               Home
             </Link>
           </li>
@@ -27,15 +42,16 @@ export function SiteNav({ nav, brand }: { nav: Nav; brand: Brand }) {
               <Link
                 href={l.href}
                 className={`${l.highlight ? "nav-challenge" : ""} ${
-                  pathname.startsWith(l.href) ? "active" : ""
+                  isActive(l.href) ? "active" : ""
                 }`}
+                aria-current={isActive(l.href) ? "page" : undefined}
               >
                 {l.label}
               </Link>
             </li>
           ))}
           <li
-            className="site-nav__dropdown"
+            className={`site-nav__dropdown${pathname.startsWith("/blogs") ? " is-dd-active" : ""}`}
             data-nav-dd
             data-open={ddOpen}
           >
@@ -62,9 +78,10 @@ export function SiteNav({ nav, brand }: { nav: Nav; brand: Brand }) {
           <li>
             <Link
               href={nav.contact.href}
-              className={pathname === nav.contact.href ? "active" : undefined}
+              className={isActive(nav.contact.href) ? "active" : undefined}
+              aria-current={isActive(nav.contact.href) ? "page" : undefined}
             >
-              {nav.contact.label} Me
+              {nav.contact.label}
             </Link>
           </li>
         </ul>

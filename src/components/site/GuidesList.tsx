@@ -44,18 +44,18 @@ export function GuidesList({
             </div>
           </div>
           <div className="filter-row">
-            <span className="filter-label">Search guides</span>
+            <span className="filter-label">Search blogs</span>
             <input
               className="filter-search"
               type="search"
               placeholder="Search by title or description…"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              aria-label="Search guides"
+              aria-label="Search blogs"
             />
           </div>
           <p className="filter-count">
-            <b>{filtered.length}</b> {filtered.length === 1 ? "guide" : "guides"}
+            <b>{filtered.length}</b> {filtered.length === 1 ? "post" : "posts"}
             {filter !== "All" ? ` in ${filter}` : ""}
             {query ? ` matching “${query}”` : ""}
           </p>
@@ -64,10 +64,15 @@ export function GuidesList({
 
       <div className="guide-list">
         {filtered.map((g) => (
-          <Link key={g.slug} href={`/guides/${g.slug}`} className="guide-row">
+          <Link key={g.slug} href={`/blogs/${g.slug}`} className="guide-row">
             <div className="guide-row__body">
               <span className="guide-row__tag">
                 {g.tag} · {g.readTime}
+                {g.pdfPath ? (
+                  <span className="guide-row__pdf" title="This post has a free PDF download">
+                    PDF
+                  </span>
+                ) : null}
               </span>
               <h2 className="guide-row__title">{g.title}</h2>
               <p className="guide-row__desc">{g.desc}</p>
@@ -77,7 +82,7 @@ export function GuidesList({
         ))}
         {filtered.length === 0 && (
           <div className="guide-list__empty">
-            No guides match your filters yet — try clearing the search.
+            No posts match your filters yet — try clearing the search.
           </div>
         )}
       </div>

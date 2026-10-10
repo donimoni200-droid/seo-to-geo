@@ -83,11 +83,11 @@ export const ADMIN_SECTIONS: AdminSection[] = [
     key: "brand",
     group: "Brand & Global",
     title: "Brand & Identity",
-    description: "The site name, the italic word inside the logo, and the footer tagline.",
+    description: "The site name shown in page titles and the footer, plus the footer tagline.",
     fields: [
-      text("name", "Site name (used in logo, nav, footer)", "The word matching “emWord” is rendered in italic serif."),
-      text("firstName", "First name"),
-      text("emWord", "Italic word", "This word inside the site name is shown in the signature italic serif."),
+      text("name", "Site name (titles, footer, alt texts)"),
+      text("firstName", "First name (optional)"),
+      text("emWord", "Italic word", "Kept for compatibility — the logo image is used in the header now."),
       text("footerTagline", "Footer tagline"),
       num("year", "Copyright year"),
     ],
@@ -253,8 +253,8 @@ export const ADMIN_SECTIONS: AdminSection[] = [
   {
     key: "guidesSection",
     group: "Homepage",
-    title: "Guides Block Headings",
-    description: "Headings of the “Recent guides” grid on the homepage.",
+    title: "Blogs Block Headings",
+    description: "Headings of the “Latest GEO posts” grid on the homepage and the blog page hero.",
     fields: [
       text("kicker", "Kicker"),
       text("titleA", "Title (first part)"),
@@ -555,11 +555,11 @@ export function findSection(key: string): AdminSection | undefined {
   return ADMIN_SECTIONS.find((s) => s.key === key);
 }
 
-/* Guide editor fields (used by the GuideForm component) */
+/* Guide (blog post) editor fields (used by the GuideForm component) */
 export const GUIDE_FIELDS: FieldDef[] = [
-  text("tag", "Tag / topic", "Shown as the guide's topic chip and used by the filter bar."),
+  text("tag", "Tag / topic", "Shown as the post's topic chip and used by the filter bar."),
   text("title", "Title"),
-  text("slug", "URL slug", "Letters, numbers and dashes — e.g. what-is-geo"),
+  text("slug", "URL slug", "Letters, numbers and dashes — e.g. what-is-geo. The public link is /blogs/your-slug."),
   area("desc", "Short description", "Shown on cards and list rows."),
   text("readTime", "Read time", "e.g. 7 min"),
   bool("published", "Published (visible on the site)"),
@@ -567,7 +567,7 @@ export const GUIDE_FIELDS: FieldDef[] = [
   {
     type: "list",
     key: "body",
-    label: "Guide body (sections)",
+    label: "Post body (sections)",
     titleKey: "heading",
     fields: [text("heading", "Section heading"), paraList("paras", "Section paragraphs")],
     addLabel: "Add section",

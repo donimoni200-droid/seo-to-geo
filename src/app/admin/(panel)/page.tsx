@@ -46,8 +46,8 @@ export default async function AdminDashboard() {
     <div>
       <h1 className="admin-page-title">Dashboard</h1>
       <p className="admin-page-desc">
-        Everything on the site is editable from here — content sections, guides, the
-        waitlist, and your messages.
+        Everything on the site is editable from here — content sections, blog posts (with
+        PDF downloads), the waitlist, and your messages.
       </p>
 
       <div className="admin-stat-grid">
@@ -55,7 +55,7 @@ export default async function AdminDashboard() {
           <span className="admin-stat__value">{stats.guides}</span>
           <span className="admin-stat__label">
             <FileText size={11} style={{ display: "inline", marginRight: 4 }} />
-            Guides ({stats.published} live)
+            Blog posts ({stats.published} live)
           </span>
         </Link>
         <Link href="/admin/messages" className="admin-stat">

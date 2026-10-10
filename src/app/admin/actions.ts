@@ -3,6 +3,7 @@
 import { z } from "zod";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { unlinkSync, writeFileSync } from "node:fs";
 import { db } from "@/lib/db";
 import {
   verifyPassword,
@@ -12,6 +13,7 @@ import {
   requireAdmin,
 } from "@/lib/auth";
 import { deepMerge, schemaFrom, CONTENT_KEYS, type GuideBody } from "@/lib/content";
+import { guidePdfPath, MAX_PDF_BYTES } from "@/lib/uploads";
 import rawSite from "@/content/site.json";
 import rawGuides from "@/content/guides.json";
 
@@ -173,7 +175,7 @@ export async function saveGuideAction(
         },
       });
       refresh();
-      return { ok: true, message: "Guide updated." };
+      return { ok: true, message: "Blog post updated." };
     } else {
       const clash = await db.guide.findUnique({ where: { slug } });
       if (clash) return { ok: false, message: `Slug "${slug}" is already used by another guide.` };
@@ -190,7 +192,7 @@ export async function saveGuideAction(
         },
       });
       refresh();
-      return { ok: true, message: "Guide created." };
+      return { ok: true, message: "Blog post created." };
     }
   } catch {
     return { ok: false, message: "Could not save the guide — please try again." };
@@ -200,11 +202,19 @@ export async function saveGuideAction(
 export async function deleteGuideAction(id: string): Promise<AdminActionState> {
   await requireAdmin();
   try {
+    const guide = await db.guide.findUnique({ where: { id } });
+    if (guide?.pdfPath) {
+      try {
+        unlinkSync(guide.pdfPath);
+      } catch {
+        /* file already gone — fine */
+      }
+    }
     await db.guide.delete({ where: { id } });
     refresh();
-    return { ok: true, message: "Guide deleted." };
+    return { ok: true, message: "Blog post deleted." };
   } catch {
-    return { ok: false, message: "Could not delete the guide." };
+    return { ok: false, message: "Could not delete the blog post." };
   }
 }
 
@@ -212,12 +222,12 @@ export async function toggleGuidePublishedAction(id: string): Promise<AdminActio
   await requireAdmin();
   try {
     const guide = await db.guide.findUnique({ where: { id } });
-    if (!guide) return { ok: false, message: "Guide not found." };
+    if (!guide) return { ok: false, message: "Blog post not found." };
     await db.guide.update({ where: { id }, data: { published: !guide.published } });
     refresh();
-    return { ok: true, message: guide.published ? "Guide hidden." : "Guide published." };
+    return { ok: true, message: guide.published ? "Blog post hidden." : "Blog post published." };
   } catch {
-    return { ok: false, message: "Could not update the guide." };
+    return { ok: false, message: "Could not update the blog post." };
   }
 }
 
@@ -243,6 +253,61 @@ export async function resetGuidesAction(): Promise<AdminActionState> {
     return { ok: true, message: "Guides restored to the built-in SEO→GEO library." };
   } catch {
     return { ok: false, message: "Could not restore guides." };
+  }
+}
+
+/* ── GUIDE PDF ── */
+
+export async function uploadGuidePdfAction(
+  id: string,
+  formData: FormData
+): Promise<AdminActionState> {
+  await requireAdmin();
+  const file = formData.get("pdf");
+  if (!(file instanceof File) || file.size === 0) {
+    return { ok: false, message: "Choose a PDF file first." };
+  }
+  if (file.size > MAX_PDF_BYTES) {
+    return { ok: false, message: "PDF is too large — the limit is 25 MB." };
+  }
+  const guide = await db.guide.findUnique({ where: { id } });
+  if (!guide) return { ok: false, message: "Blog post not found — save it first." };
+  try {
+    const buf = Buffer.from(await file.arrayBuffer());
+    if (buf.subarray(0, 5).toString("latin1") !== "%PDF-") {
+      return { ok: false, message: "That file does not look like a PDF." };
+    }
+    const target = guidePdfPath(guide.id);
+    writeFileSync(target, buf);
+    const cleanName = (file.name || "download.pdf").replace(/[\\/:*?\"<>|]/g, "_").slice(0, 120);
+    await db.guide.update({
+      where: { id },
+      data: { pdfPath: target, pdfName: cleanName || "download.pdf" },
+    });
+    refresh();
+    return { ok: true, message: "PDF attached — visitors can now download it." };
+  } catch {
+    return { ok: false, message: "Could not save the PDF — try again." };
+  }
+}
+
+export async function removeGuidePdfAction(id: string): Promise<AdminActionState> {
+  await requireAdmin();
+  try {
+    const guide = await db.guide.findUnique({ where: { id } });
+    if (!guide) return { ok: false, message: "Blog post not found." };
+    if (guide.pdfPath) {
+      try {
+        unlinkSync(guide.pdfPath);
+      } catch {
+        /* file already gone — fine */
+      }
+    }
+    await db.guide.update({ where: { id }, data: { pdfPath: null, pdfName: null } });
+    refresh();
+    return { ok: true, message: "PDF removed." };
+  } catch {
+    return { ok: false, message: "Could not remove the PDF." };
   }
 }
 

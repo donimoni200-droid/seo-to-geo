@@ -24,6 +24,7 @@ export default async function GuideEditPage({
           published: true,
           order: 0,
           body: [],
+          pdfName: "",
         }}
       />
     );
@@ -57,6 +58,7 @@ export default async function GuideEditPage({
         published: guide.published,
         order: guide.order,
         body,
+        pdfName: guide.pdfName ?? "",
       }}
     />
   );

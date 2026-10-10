@@ -13,7 +13,7 @@ export function HomeFooter({
   return (
     <footer className="home-footer">
       <div className="home-footer__brand">
-        <SiteLogo variant="cream" name={brand.name} emWord={brand.emWord} />
+        <SiteLogo variant="cream" name={brand.name} size={56} />
       </div>
       <div className="home-footer__grid">
         {footer.columns.map((col) => (

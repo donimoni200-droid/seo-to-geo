@@ -2090,3 +2090,361 @@ a { color: var(--red); text-decoration: none; }
 }
 
 .admin-login__foot a { color: var(--red); font-weight: 700; }
+
+/* ================================================================
+   BRAND LOGO IMAGE — SEO to GEO HQ badge, gently animated
+   ================================================================ */
+
+.brand-logo {
+  display: inline-grid;
+  place-items: center;
+  line-height: 0;
+}
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  animation: brandFloat 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes brandFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6%) rotate(-1.2deg); }
+}
+.brand-logo:hover img { animation-play-state: paused; transform: scale(1.05); transition: transform 0.25s ease; }
+
+/* Home header badge */
+.home-header__brand { width: auto; height: 44px; overflow: visible; }
+.home-header__logobadge {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  line-height: 0;
+  border-radius: 6px;
+  animation: brandFloat 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+.home-header__logobadge img {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  box-shadow: 0 3px 14px rgba(47, 45, 45, 0.18);
+  transition: box-shadow 0.25s ease;
+}
+.home-header__logobadge.is-scrolled img {
+  box-shadow: 0 0 0 2px var(--cream), 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 760px) {
+  .home-header__logobadge,
+  .home-header__logobadge img { width: 38px; height: 38px; }
+}
+
+/* Inner-page nav badge */
+.site-nav__brand { display: inline-flex; align-items: center; }
+.site-nav__logobadge {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  line-height: 0;
+  border-radius: 5px;
+  animation: brandFloat 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+.site-nav__logobadge img {
+  width: 38px;
+  height: 38px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 2px var(--red), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.site-nav__brand:hover { opacity: 1; }
+.site-nav__brand:hover .site-nav__logobadge img { transform: scale(1.06); transition: transform 0.25s ease; }
+
+/* Footer logo */
+.home-footer__brand .brand-logo img {
+  box-shadow: 0 0 0 2px rgba(255, 250, 231, 0.35);
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-logo img,
+  .home-header__logobadge,
+  .site-nav__logobadge { animation: none; }
+}
+
+/* ================================================================
+   ACTIVE NAV STATES — the page you are on is clearly marked
+   ================================================================ */
+
+/* Home header (cream background, dark links) */
+.home-header__menu a.active {
+  color: var(--red);
+  position: relative;
+}
+.home-header__menu a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 3px;
+  background: var(--red);
+  border-radius: 2px;
+  animation: navUnderlineIn 0.3s ease both;
+}
+.home-header.is-scrolled .home-header__menu a.active { color: var(--cream); }
+.home-header.is-scrolled .home-header__menu a.active::after { background: var(--cream); }
+
+/* Home header dropdown trigger when inside the blogs section */
+.home-header .site-nav__dropdown.is-dd-active > button { color: var(--red); font-weight: 800; }
+.home-header.is-scrolled .site-nav__dropdown.is-dd-active > button { color: var(--cream); }
+
+/* Inner page nav (black bar, cream links) */
+.site-nav__links a.active {
+  opacity: 1;
+  color: var(--cream);
+  position: relative;
+}
+.site-nav__links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 3px;
+  background: var(--red);
+  border-radius: 2px;
+  animation: navUnderlineIn 0.3s ease both;
+}
+.site-nav__dropdown.is-dd-active .site-nav__dropdown-trigger {
+  opacity: 1;
+  color: var(--cream);
+}
+.site-nav__dropdown.is-dd-active .site-nav__dropdown-trigger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 3px;
+  background: var(--red);
+  border-radius: 2px;
+}
+.site-nav__dropdown.is-dd-active { position: relative; }
+.site-nav__dropdown-trigger { position: relative; }
+
+@keyframes navUnderlineIn {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ================================================================
+   PAGE TRANSITION — logo curtain between routes
+   ================================================================ */
+
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+}
+.page-transition__curtain {
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  display: grid;
+  place-items: center;
+  grid-template-rows: 1fr;
+  border-top: 6px solid var(--red);
+}
+.page-transition__logo {
+  display: grid;
+  place-items: center;
+}
+.page-transition__logo img {
+  width: clamp(96px, 18vw, 150px);
+  height: clamp(96px, 18vw, 150px);
+  border-radius: 10px;
+  box-shadow: 0 18px 50px -18px rgba(47, 45, 45, 0.45);
+}
+.page-transition__brand {
+  position: absolute;
+  bottom: clamp(28px, 10vh, 90px);
+  display: grid;
+  place-items: center;
+  gap: 10px;
+}
+.page-transition__word {
+  font-family: var(--font-anton);
+  font-size: clamp(0.9rem, 2.4vw, 1.3rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.page-transition__bar {
+  width: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--red);
+}
+
+/* ── intro: first load reveal ── */
+.page-transition--intro .page-transition__curtain {
+  animation: ptCurtainOut 0.48s cubic-bezier(0.7, 0, 0.25, 1) 0.62s both;
+}
+.page-transition--intro .page-transition__logo img {
+  animation: ptLogoIn 0.55s cubic-bezier(0.2, 0.9, 0.25, 1.2) both, ptLogoOut 0.4s ease 0.5s both;
+}
+.page-transition--intro .page-transition__bar {
+  animation: ptBarGrow 1s cubic-bezier(0.6, 0, 0.3, 1) 0.08s both;
+}
+
+/* ── cover: navigation starts, logo pops in ── */
+.page-transition--cover .page-transition__curtain {
+  animation: ptCurtainIn 0.34s cubic-bezier(0.55, 0, 0.3, 1) both;
+}
+.page-transition--cover .page-transition__logo img {
+  animation: ptLogoIn 0.5s cubic-bezier(0.2, 0.9, 0.25, 1.2) 0.06s both;
+}
+.page-transition--cover .page-transition__bar {
+  animation: ptBarGrow 0.55s cubic-bezier(0.6, 0, 0.3, 1) 0.1s both;
+}
+
+/* ── reveal: curtain lifts, logo exits upward ── */
+.page-transition--reveal .page-transition__curtain {
+  animation: ptCurtainOut 0.46s cubic-bezier(0.7, 0, 0.25, 1) both;
+}
+.page-transition--reveal .page-transition__logo img {
+  animation: ptLogoOut 0.42s cubic-bezier(0.5, 0, 0.8, 0.4) both;
+}
+.page-transition--reveal .page-transition__word { animation: ptWordOut 0.3s ease both; }
+.page-transition--reveal .page-transition__bar { animation: ptBarOut 0.3s ease both; }
+
+@keyframes ptCurtainIn {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+@keyframes ptCurtainOut {
+  from { transform: translateY(0); }
+  to { transform: translateY(-101%); }
+}
+@keyframes ptLogoIn {
+  0% { transform: scale(0.55) rotate(-6deg); opacity: 0; }
+  60% { transform: scale(1.06) rotate(1.5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes ptLogoOut {
+  from { transform: scale(1) rotate(0deg); opacity: 1; }
+  to { transform: scale(1.5) translateY(-18px) rotate(2deg); opacity: 0; }
+}
+@keyframes ptBarGrow {
+  from { width: 0; }
+  to { width: clamp(90px, 16vw, 150px); }
+}
+@keyframes ptBarOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes ptWordOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition { display: none; }
+}
+
+/* ================================================================
+   PDF DOWNLOAD — blog post download box + list chips
+   ================================================================ */
+
+.pdf-download-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 26px 0 40px;
+  padding: clamp(20px, 3.5vw, 34px);
+  background: var(--red);
+  color: var(--cream);
+  border-radius: 6px;
+  box-shadow: 0 16px 40px -20px rgba(208, 46, 46, 0.55);
+}
+.pdf-download-box__label {
+  display: inline-block;
+  font-family: var(--font-text);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: rgba(255, 250, 231, 0.16);
+  border: 1px solid rgba(255, 250, 231, 0.4);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+.pdf-download-box__copy { max-width: 60%; flex: 1 1 260px; }
+.pdf-download-box__copy p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  opacity: 0.95;
+}
+.pdf-download-box__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--cream);
+  color: var(--red);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 15px 28px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pdf-download-box__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -12px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+@media (max-width: 640px) {
+  .pdf-download-box { flex-direction: column; align-items: flex-start; }
+  .pdf-download-box__copy { max-width: 100%; }
+}
+
+.guide-row__pdf {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 1px 8px 2px;
+  border-radius: 3px;
+  background: var(--red);
+  color: var(--cream);
+  font-family: var(--font-text);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
+.home-guide-card__pdf {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 1px 8px 2px;
+  border-radius: 3px;
+  background: var(--red);
+  color: var(--cream);
+  font-family: var(--font-text);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  vertical-align: 2px;
+}

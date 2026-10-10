@@ -301,3 +301,22 @@
 .admin-badge--ok { background: rgba(28, 107, 60, 0.12); color: #1c6b3c; }
 .admin-badge--off { background: rgba(47, 45, 45, 0.1); color: rgba(47, 45, 45, 0.6); }
 .admin-badge--red { background: rgba(208, 46, 46, 0.12); color: #d02e2e; }
+
+/* ── Guide PDF attachment card ── */
+.admin-field-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(47, 45, 45, 0.65);
+}
+
+.admin-field-help {
+  font-size: 0.78rem;
+  color: rgba(47, 45, 45, 0.55);
+  margin: 4px 0 0;
+}
+
+.spin { animation: adminSpin 0.9s linear infinite; }
+@keyframes adminSpin { to { transform: rotate(360deg); } }

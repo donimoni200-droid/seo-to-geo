@@ -29,5 +29,8 @@ execSync("npx prisma migrate deploy", { stdio: "inherit" });
 console.log("→ Seeding database (idempotent)…");
 execSync("node prisma/seed.mjs", { stdio: "inherit" });
 
+console.log("→ Applying brand migration (idempotent)…");
+execSync("node scripts/fix-brand.mjs", { stdio: "inherit" });
+
 console.log("→ Starting Next.js…");
 execSync("npx next start", { stdio: "inherit" });

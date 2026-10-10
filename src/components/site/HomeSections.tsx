@@ -105,15 +105,18 @@ export function HomeGuides({
       <div className="home-guides__grid">
         {recent.map((g) => (
           <Reveal key={g.slug} className="home-guides__cell">
-            <Link href={`/guides/${g.slug}`} className="home-guide-card">
-              <h3>{g.title}</h3>
+            <Link href={`/blogs/${g.slug}`} className="home-guide-card">
+              <h3>
+                {g.title}
+                {g.pdfPath ? <span className="home-guide-card__pdf">PDF</span> : null}
+              </h3>
               <p>{g.desc}</p>
-              <span className="home-guide-card__link">Read Guide →</span>
+              <span className="home-guide-card__link">Read post →</span>
             </Link>
           </Reveal>
         ))}
       </div>
-      <Link href="/guides" className="btn home-guides__all">
+      <Link href="/blogs" className="btn home-guides__all">
         {section.cta}
       </Link>
     </section>

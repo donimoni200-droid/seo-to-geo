@@ -5,6 +5,7 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { CountdownBar } from "@/components/site/CountdownBar";
 import { HomeFooter } from "@/components/site/HomeFooter";
 import { WaitlistForm } from "@/components/site/WaitlistForm";
+import { DownloadIcon } from "@/components/site/icons";
 import {
   getGuide,
   getPublishedGuides,
@@ -22,15 +23,20 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const [guide, brand] = await Promise.all([getGuide(slug), getBrand()]);
-  if (!guide) return { title: "Guide not found" };
+  if (!guide) return { title: "Post not found" };
   return {
     title: guide.title,
     description: guide.desc,
-    openGraph: { title: guide.title, description: guide.desc, type: "article" },
+    openGraph: {
+      title: guide.title,
+      description: guide.desc,
+      type: "article",
+      images: ["/assets/brand/logo.png"],
+    },
   };
 }
 
-export default async function GuidePage({ params }: Props) {
+export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const [guide, guides, cp, brand, nav, countdown, footer] = await Promise.all([
     getGuide(slug),
@@ -44,6 +50,7 @@ export default async function GuidePage({ params }: Props) {
   if (!guide) notFound();
 
   const others = guides.filter((g) => g.slug !== slug).slice(0, 3);
+  const hasPdf = Boolean(guide.pdfPath);
 
   return (
     <div className="inner-page fade-in">
@@ -51,13 +58,34 @@ export default async function GuidePage({ params }: Props) {
       <SiteNav nav={nav} brand={brand} />
       <main>
         <article className="guide-article">
-          <Link href="/guides" className="guide-article__back">
-            ← All guides
+          <Link href="/blogs" className="guide-article__back">
+            ← All blogs
           </Link>
           <h1 className="guide-article__title">{guide.title}</h1>
           <p className="guide-article__meta">
             {guide.tag} · {guide.readTime} read
           </p>
+
+          {hasPdf && (
+            <div className="pdf-download-box">
+              <div className="pdf-download-box__copy">
+                <span className="pdf-download-box__label">Free download</span>
+                <p>
+                  Grab this full post as a PDF — every step, checklist, and example, ready to
+                  read offline or share with your team.
+                </p>
+              </div>
+              <a
+                className="pdf-download-box__btn"
+                href={`/api/blogs/${guide.slug}/pdf`}
+                download={guide.pdfName ?? undefined}
+              >
+                <DownloadIcon size={18} />
+                {guide.pdfName ? `Download ${guide.pdfName}` : "Download the PDF"}
+              </a>
+            </div>
+          )}
+
           {guide.body.map((section, i) => (
             <section key={i}>
               <h2>{section.heading}</h2>
@@ -83,10 +111,11 @@ export default async function GuidePage({ params }: Props) {
           </div>
           <div className="guide-list" style={{ paddingBottom: 0 }}>
             {others.map((g) => (
-              <Link key={g.slug} href={`/guides/${g.slug}`} className="guide-row">
+              <Link key={g.slug} href={`/blogs/${g.slug}`} className="guide-row">
                 <div className="guide-row__body">
                   <span className="guide-row__tag">
                     {g.tag} · {g.readTime}
+                    {g.pdfPath ? " · PDF" : ""}
                   </span>
                   <h2 className="guide-row__title">{g.title}</h2>
                   <p className="guide-row__desc">{g.desc}</p>
@@ -98,7 +127,7 @@ export default async function GuidePage({ params }: Props) {
         </section>
       </main>
       <HomeFooter footer={footer} brand={brand}>
-        <WaitlistForm source={`guide-${slug}`} buttonText={footer.ctaButton} />
+        <WaitlistForm source={`blog-${slug}`} buttonText={footer.ctaButton} />
       </HomeFooter>
     </div>
   );

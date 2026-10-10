@@ -19,12 +19,12 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata(): Promise<Metadata> {
   const [brand, section] = await Promise.all([getBrand(), getGuidesSection()]);
   return {
-    title: "Free GEO Guides",
+    title: "BLOGS",
     description: section.desc,
   };
 }
 
-export default async function GuidesPage() {
+export default async function BlogsPage() {
   const [section, guides, brand, nav, countdown, footer] = await Promise.all([
     getGuidesSection(),
     getPublishedGuides(),
@@ -47,18 +47,17 @@ export default async function GuidesPage() {
               <em>{section.titleEm}</em>
               {section.titleB}
             </h1>
-            <p>{section.desc} New guides every week.</p>
+            <p>{section.desc} New posts drop every week — many with a free PDF you can download and keep.</p>
           </div>
           <div className="inner-hero__visual">
-            { }
-            <img src="/assets/sections/social-studio.png" alt="The GEO guides library" />
+            <img src="/assets/sections/social-studio.png" alt="The SEO to GEO HQ blog" />
           </div>
         </section>
 
         <GuidesList guides={guides} filters={guideTags(guides)} />
       </main>
       <HomeFooter footer={footer} brand={brand}>
-        <WaitlistForm source="guides" buttonText={footer.ctaButton} />
+        <WaitlistForm source="blogs" buttonText={footer.ctaButton} />
       </HomeFooter>
     </div>
   );
